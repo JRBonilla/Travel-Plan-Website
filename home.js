@@ -128,37 +128,41 @@ function updateAttractions() {
   addOptions(attractionsSelect, options);
 }
 
-$("#popularPlaces").on("change", function() {
-   if (this.value= 'whiteHouse2') {
-	   $("#image1").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image2").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image3").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image4").html("<img src='whiteHouse.jpg' alt='White House'>");
-   }
-   else if (this.value = 'cnTower') {
-	   $("#image1").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image2").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image3").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image4").html("<img src='whiteHouse.jpg' alt='White House'>");
-   }
-   else if (this.value = 'cnTower') {
-	   $("#image1").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image2").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image3").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image4").html("<img src='whiteHouse.jpg' alt='White House'>");
-   }
-   else if (this.value = 'cnTower') {
-	   $("#image1").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image2").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image3").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image4").html("<img src='whiteHouse.jpg' alt='White House'>");
-   }
-   else if (this.value = 'cnTower') {
-	   $("#image1").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image2").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image3").html("<img src='whiteHouse.jpg' alt='White House'>");
-	   $("#image4").html("<img src='whiteHouse.jpg' alt='White House'>");
-   }
+$( document ).ready(function() {
+  $("#popularPlaces").on("change",function() {
+    if (this.value == 'whiteHouse2') {
+      $("#image1").html("<img src='assets/whiteHouse.jpg' class='image1' width='400' alt='White House'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
+      $("#image2").html("<img src='assets/whiteHouse.jpg' width='180' alt='White House'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
+      $("#image3").html("<img src='assets/whiteHouse.jpg' width='180' alt='White House'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
+      $("#image4").html("<img src='assets/whiteHouse.jpg' width='180' alt='White House'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
+    }
+    else if (this.value == 'cnTower') {
+      $("#image1").html("<img src='assets/cnTower.jpg' class='image1' width='400' alt='CN Tower'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
+      $("#image2").html("<img src='assets/cnTower.jpg' width='180' alt='CN Tower'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
+      $("#image3").html("<img src='assets/cnTower.jpg' width='180' alt='CN Tower'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
+      $("#image4").html("<img src='assets/cnTower.jpg' width='180' alt='CN Tower'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
+    }
+    /*
+    else if (this.value == 'cnTower') {
+      $("#image1").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+      $("#image2").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+      $("#image3").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+      $("#image4").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+    }
+    else if (this.value == 'cnTower') {
+      $("#image1").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+      $("#image2").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+      $("#image3").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+      $("#image4").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+    }
+    else if (this.value = 'cnTower') {
+      $("#image1").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+      $("#image2").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+      $("#image3").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+      $("#image4").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+    }
+    */
+  });
 });
 
 $("#countries").hide();

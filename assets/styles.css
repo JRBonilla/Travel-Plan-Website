@@ -1,0 +1,24 @@
+.image1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.caption1{
+    display: block;
+    text-align: center;
+}
+.container .box {  
+    width:540px;  
+    margin:auto;  
+    display:table; 
+
+}  
+.container .box .box-row {  
+    display:table-row;  
+}  
+.container .box .box-cell {  
+    display:table-cell; 
+    width:33%;  
+    padding:10px;   
+}  
