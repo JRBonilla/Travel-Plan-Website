@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <title>Plan Your Travel</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <link rel="stylesheet" type="text/css" href="assets/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
   </head>
-  <body>
-    <!--Part 1 -->
-    <button type="button">Home</button>
-    <button type="button">About Us</button>
-    <button type="button">Contact Us</button> 
-    <button type="button">Shopping Cart</button> 
-    <br>
-    <br>
-    <!--Parts 2-3-->
-    <select id="continents" onchange="updateCountries()">
-      <option value="" disabled selected>--- Continents ---</option>
-    </select>
-    <br>
-    <select id="countries" onchange="updateAttractions()">
-      <option value="" disabled selected>--- Countries ---</option>
-    </select>
-    <br>
-    <select id="attractions">
-      <option value="" disabled selected>--- Attractions ---</option>
-    </select>
-    <br>
-    <select id="popularPlaces">
-      <option value="" disabled selected>--- Popular Places ---</option>
-    </select>
-    
+  <body class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="buttonNav">
+        <!--Part 1 -->
+        <ul class="nav navbar-nav buttonNav">
+          <li><a class="button" href="javascript:void(0)" onclick="">Home</a></li>
+          <li><a class="button" href="javascript:void(0)" onclick="">About Us</a></li>
+          <li><a class="button" href="javascript:void(0)" onclick="">Contact Us</a></li>
+          <li><a class="button" href="javascript:void(0)" onclick="">Shopping Cart</a></li>
+        </ul>
+        <!--Parts 2-3-->
+        <ul class="nav navbar-nav selectNav">
+          <li><select id="continents" onchange="updateCountries()">
+            <option value="" disabled selected>--- Continents ---</option>
+          </select></li>
+          <li><select id="countries" onchange="updateAttractions()">
+            <option value="" disabled selected>--- Countries ---</option>
+          </select></li>
+          <li><select id="attractions">
+            <option value="" disabled selected>--- Attractions ---</option>
+          </select></li>
+          <li><select id="popularPlaces">
+            <option value="" disabled selected>--- Popular Places ---</option>
+          </select></li>
+        </ul>
+      </div>
+    </nav>
+
     <!--"One medium box at the center with the image of the place"-->
     <div id="image1">
     </div>
@@ -58,7 +67,6 @@
       </div>
     </div>
   -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="home.js"></script>
+  <script type="text/javascript" src="home.js"></script>
   </body>
 </html>
