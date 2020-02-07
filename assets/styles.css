@@ -79,3 +79,21 @@ ul.selectNav li {
 	float: left;
 	padding-left: 12px;
 }
+
+.aboutBox {
+  font-family: Verdana;  
+  width: 1000px;
+  height: 500px;
+  border: 2px solid #000;
+  margin: 0 auto 15px;
+  text-align: left;
+  padding: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: #ddd;
+  border-color: #aaa; 
+}
+
+.buttonX {
+	float: right;
+}
