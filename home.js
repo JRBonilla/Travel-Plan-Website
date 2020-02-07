@@ -125,38 +125,26 @@ function updateAttractions() {
 
 $( document ).ready(function() {
   $("#popularPlaces").on("change",function() {
-    if (this.value == 'whiteHouse2') {
-      $("#image1").html("<img src='assets/whiteHouse.jpg' class='image1' width='400' alt='White House'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
+    if (this.value == 'whiteHouse') {
+      $("#image1").html("<img src='assets/whiteHouse.jpg' class='image1' width='400' alt='White House'> <span class='caption1'>Text below the image <a href='pages/readMorePages/readMore2.html'>Read More</a></span>");
       $("#image2").html("<img src='assets/whiteHouse.jpg' width='180' alt='White House'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
-      $("#image3").html("<img src='assets/whiteHouse.jpg' width='180' alt='White House'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
-      $("#image4").html("<img src='assets/whiteHouse.jpg' width='180' alt='White House'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
     }
     else if (this.value == 'cnTower') {
-      $("#image1").html("<img src='assets/cnTower.jpg' class='image1' width='400' alt='CN Tower'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
+      $("#image1").html("<img src='assets/cnTower.jpg' class='image1' width='400' alt='CN Tower'> <span class='caption1'>Text below the image <a href='pages/readMorePages/readMore2.html'>Read More</a></span>");
       $("#image2").html("<img src='assets/cnTower.jpg' width='180' alt='CN Tower'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
-      $("#image3").html("<img src='assets/cnTower.jpg' width='180' alt='CN Tower'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
-      $("#image4").html("<img src='assets/cnTower.jpg' width='180' alt='CN Tower'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
     }
-    /*
-    else if (this.value == 'cnTower') {
-      $("#image1").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
-      $("#image2").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
-      $("#image3").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
-      $("#image4").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+    else if (this.value == 'wallC') {
+      $("#image1").html("<img src='assets/greatWoC.jpg' class='image1' width='400' alt='Great Wall of China'> <span class='caption1'>Text below the image <a href='pages/readMorePages/readMore3.html'>Read More</a></span>");
+      $("#image2").html("<img src='assets/greatWoC.jpg' width='180' alt='Great Wall of China'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
     }
-    else if (this.value == 'cnTower') {
-      $("#image1").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
-      $("#image2").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
-      $("#image3").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
-      $("#image4").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+    else if (this.value == 'eiffelT') {
+      $("#image1").html("<img src='assets/eiffelT.jpg' class='image1' width='400' alt='Effiel Tower'> <span class='caption1'>Text below the image <a href='pages/readMorePages/readMore4.html'>Read More</a></span>");
+      $("#image2").html("<img src='assets/eiffelT.jpg' width='180' alt='Effiel Tower'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
     }
-    else if (this.value = 'cnTower') {
-      $("#image1").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
-      $("#image2").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
-      $("#image3").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
-      $("#image4").html("<img src='assets/whiteHouse.jpg' alt='White House'>");
+    else if (this.value == 'fuji') {
+      $("#image1").html("<img src='assets/fuji.jpg' class='image1' width='400' alt='Mount Fuji'> <span class='caption1'>Text below the image <a href='pages/readMorePages/readMore5.html'>Read More</a></span>");
+      $("#image2").html("<img src='assets/fuji.jpg' width='180' alt='Mount Fuji'> <span class='caption1'>Text below the image <a href=''>Read More</a></span>");
     }
-    */
   });
 });
 

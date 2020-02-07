@@ -1,0 +1,25 @@
+#part1 {
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 5px;
+}
+
+#part2 {
+    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 5px;
+}
+
+#part3 {
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0;
+    width: 100%;
+    border-style: solid;
+    border-width: 5px;
+}
