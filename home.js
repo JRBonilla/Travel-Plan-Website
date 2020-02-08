@@ -123,6 +123,22 @@ function updateAttractions() {
   addOptions(attractionsSelect, options);
 }
 
+function aboutUs() {
+	  $("#aboutBox").show();
+}
+
+function contactUs() {
+	  $("#contactBox").show();
+}
+
+function closeContact() {
+	  $("#contactBox").hide();
+}
+
+function closeAbout() {
+	  $("#aboutBox").hide();
+}
+
 $( document ).ready(function() {
   $("#popularPlaces").on("change",function() {
     if (this.value == 'whiteHouse') {
@@ -150,6 +166,8 @@ $( document ).ready(function() {
 
 $("#countries").hide();
 $("#attractions").hide();
+$("#contactBox").hide();
+$("#aboutBox").hide();
 addOptions(continentSelect, continents);
 addOptions(popularSelect, popularPlaces);
 

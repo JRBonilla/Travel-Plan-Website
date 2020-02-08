@@ -17,8 +17,8 @@
         <!--Part 1 -->
         <ul class="nav navbar-nav buttonNav">
           <li><a class="button" href="javascript:void(0)" onclick="">Home</a></li>
-          <li><a class="button" href="javascript:void(0)" onclick="">About Us</a></li>
-          <li><a class="button" href="javascript:void(0)" onclick="">Contact Us</a></li>
+          <li><a class="button" href="javascript:void(0)" onclick="aboutUs()">About Us</a></li>
+          <li><a class="button" href="javascript:void(0)" onclick="contactUs()">Contact Us</a></li>
           <li><a class="button" href="javascript:void(0)" onclick="">Shopping Cart</a></li>
         </ul>
         <!--Parts 2-3-->
@@ -38,7 +38,28 @@
         </ul>
       </div>
     </nav>
+	
+	<div class="aboutBox" id="aboutBox">
+	<p>Hello, we're CPS 630 group #2! <button class="buttonX" onclick="closeAbout()">x</button></p>
+	<br/>
+	<ol><li>Jessye Lam
+	<br/>
+	<p>Currently a 5th year computer science co-op student who is interested in pursuing a full stack job in the future</p></li>
+	<li>#2</li>
+	<li>#3</li></ol>
+	</div>
 
+	<div class="aboutBox" id="contactBox">
+	<p>We can contacted at the following: <button class="buttonX" onclick="closeContact()">x</button></p>
+	<br/>
+	<ol><li>Jessye Lam
+	<br/>
+	<p>Email: jdlam@ryerson.ca</p></li>
+	<li>#2</li>
+	<li>#3</li></ol>
+	</div>
+
+	
     <!--"One medium box at the center with the image of the place"-->
     <div id="image1">
     </div>
