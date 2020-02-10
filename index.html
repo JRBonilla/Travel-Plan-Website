@@ -4,87 +4,105 @@
     <title>Plan Your Travel</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="assets/animate.css">
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </head>
   <body class="container">
-    <nav class="navbar navbar-default">
+    <!--Navigation bar-->
+    <nav class="navbar navbar-default animated fadeIn">
       <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="buttonNav">
-        <!--Part 1 -->
-        <ul class="nav navbar-nav buttonNav">
-          <li><a class="button" href="javascript:void(0)" onclick="">Home</a></li>
-          <li><a class="button" href="javascript:void(0)" onclick="aboutUs()">About Us</a></li>
-          <li><a class="button" href="javascript:void(0)" onclick="contactUs()">Contact Us</a></li>
-          <li><a class="button" href="javascript:void(0)" onclick="">Shopping Cart</a></li>
-        </ul>
-        <!--Parts 2-3-->
-        <ul class="nav navbar-nav selectNav">
-          <li><select id="continents" onchange="updateCountries()">
-            <option value="" disabled selected>--- Continents ---</option>
-          </select></li>
-          <li><select id="countries" onchange="updateAttractions()">
-            <option value="" disabled selected>--- Countries ---</option>
-          </select></li>
-          <li><select id="attractions">
-            <option value="" disabled selected>--- Attractions ---</option>
-          </select></li>
-          <li><select id="popularPlaces">
-            <option value="" disabled selected>--- Popular Places ---</option>
-          </select></li>
-        </ul>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myTopNav">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <!--Part 1-->
+          <ul class="nav navbar-nav rightNav">
+            <li><a class="button" href="index.html">Home</a></li>
+            <li><a class="button" href="javascript:void(0)" onclick="aboutUs()">About Us</a></li>
+            <li><a class="button" href="javascript:void(0)" onclick="contactUs()">Contact Us</a></li>
+            <li><a class="button" href="javascript:void(0)" onclick="shoppingCart()">Shopping Cart</a></li>
+          </ul>
+          <!--Parts 2-3-->
+          <ul class="nav navbar-nav leftNav">
+            <li><select id="continents" onchange="updateCountries()">
+              <option value="" disabled selected>--- Continents ---</option>
+            </select></li>
+            <li><select id="countries" onchange="updateAttractions()" style="display:none" class="animated slideInLeft">
+              <option value="" disabled selected>--- Countries ---</option>
+            </select></li>
+            <li><select id="attractions" style="display:none" class="animated slideInLeft">
+              <option value="" disabled selected>--- Attractions ---</option>
+            </select></li>
+            <li><select id="popularPlaces">
+              <option value="" disabled selected>--- Popular Places ---</option>
+            </select></li>
+          </ul>
+        </div>
       </div>
     </nav>
-	
-	<div class="aboutBox" id="aboutBox">
-	<p>Hello, we're CPS 630 group #2! <button class="buttonX" onclick="closeAbout()">x</button></p>
-	<br/>
-	<ol><li>Jessye Lam
-	<br/>
-	<p>Currently a 5th year computer science co-op student who is interested in pursuing a full stack job in the future</p></li>
-	<li>#2</li>
-	<li>#3</li></ol>
-	</div>
-
-	<div class="aboutBox" id="contactBox">
-	<p>We can contacted at the following: <button class="buttonX" onclick="closeContact()">x</button></p>
-	<br/>
-	<ol>
-    <li>Jessye Lam
-	  <br/>
-    <p>Email: jdlam@ryerson.ca</p></li>
-	  <li>Christopher Seow
-    <br/>
-    <p>Email: cseow@ryerson.ca</p></li>
-	<li>#3</li></ol>
-	</div>
-
-	
-    <!--"One medium box at the center with the image of the place"-->
-    <div id="image1">
+  
+    <!--About dialog box-->
+    <div class="dialogBox animated fadeInDown" id="aboutBox">
+      <p>Hello, we're CPS630 Group #2! <button class="buttonX" onclick="closeAbout()">x</button></p>
+      <br/>
+      <ol>
+        <li>Jessye Lam
+          <br/>
+          <p>Currently a 5th year computer science co-op student who is interested in pursuing a full stack job in the future</p></li>
+        <li>Christopher Seow
+          <br/>
+          <p>[Placeholder]</p>
+        </li>
+        <li>Jonathan Bonilla
+          <br/>
+          <p>[Placeholder]</p>
+        </li>
+      </ol>
     </div>
-    <!--"Three small box at the center with the image of the place"-->
-    <div class="container">  
-      <div class="box">  
-          <div class="box-row">  
-              <div id="image2" class="box-cell box1"> 
-              </div>  
-          </div>  
-      </div>  
-  </div>  
-    <!--
-    <div id ="smallBoxes" class="smallBoxes">
-      <div id="image2" class="leftBox">
-      </div>
-      <div id="image3" class="midBox">
-      </div>
-      <div id="image4" class="rightBox">
+
+    <!--Contact Us dialog box-->
+    <div class="dialogBox animated fadeInDown" id="contactBox">
+      <p>We can contacted at the following: <button class="buttonX" onclick="closeContact()">x</button></p>
+      <br/>
+      <ol>
+        <li>Jessye Lam
+          <br/>
+          <p>Email: jdlam@ryerson.ca</p></li>
+        <li>Christopher Seow
+          <br/>
+          <p>Email: cseow@ryerson.ca</p></li>
+        <li>Jonathan Bonilla
+          <br/>
+          <p>Email: jonathan.bonilla@ryerson.ca</p>
+        </li>
+      </ol>
+    </div>
+
+    <!--Shopping cart-->
+    <div class="dialogBox animated fadeInDown" id="shoppingCart">
+      <p>Shopping Cart<button class="buttonX" onclick="closeShoppingCart()">x</button></p>
+    </div>
+
+    <div class="imageContainer">
+      <!--"One medium box at the center with the image of the place"-->
+      <div id="image1"></div>
+      <div class="container">
+        <!--"Three small box at the center with the image of the place"-->
+        <div class="box">  
+            <div class="box-row">  
+                <div id="image2" class="box-cell box1"></div>
+            </div>  
+        </div>
       </div>
     </div>
-  -->
-  <script type="text/javascript" src="home.js"></script>
+    <script type="text/javascript" src="home.js"></script>
   </body>
 </html>
