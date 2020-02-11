@@ -5,16 +5,17 @@
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/styles.css">
     <link rel="stylesheet" type="text/css" href="assets/animate.css">
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
   <body class="container">
     <!--Navigation bar-->
-    <nav class="navbar navbar-default animated fadeIn">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
+        <!--Navbar toggle for mobile screens-->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myTopNav">
             <span class="icon-bar"></span>
@@ -23,14 +24,14 @@
           </button>
         </div>
         <div class="collapse navbar-collapse">
-          <!--Part 1-->
+          <!--Part 1 - Right side-->
           <ul class="nav navbar-nav rightNav">
             <li><a class="button" href="index.html">Home</a></li>
-            <li><a class="button" href="javascript:void(0)" onclick="aboutUs()">About Us</a></li>
-            <li><a class="button" href="javascript:void(0)" onclick="contactUs()">Contact Us</a></li>
-            <li><a class="button" href="javascript:void(0)" onclick="shoppingCart()">Shopping Cart</a></li>
+            <li><a class="button" data-toggle="modal" data-target="#aboutModal">About Us</a></li>
+            <li><a class="button" data-toggle="modal" data-target="#contactModal">Contact Us</a></li>
+            <li><a class="button" href="pages/shoppingCart.html">Shopping Cart</a></li>
           </ul>
-          <!--Parts 2-3-->
+          <!--Parts 2-3 - Left side-->
           <ul class="nav navbar-nav leftNav">
             <li><select id="continents" onchange="updateCountries()">
               <option value="" disabled selected>--- Continents ---</option>
@@ -49,59 +50,70 @@
       </div>
     </nav>
   
-    <!--About dialog box-->
-    <div class="dialogBox animated fadeInDown" id="aboutBox">
-      <p>Hello, we're CPS630 Group #2! <button class="buttonX" onclick="closeAbout()">x</button></p>
-      <br/>
-      <ol>
-        <li>Jessye Lam
-          <br/>
-          <p>Currently a 5th year computer science co-op student who is interested in pursuing a full stack job in the future</p></li>
-        <li>Christopher Seow
-          <br/>
-          <p>[Placeholder]</p>
-        </li>
-        <li>Jonathan Bonilla
-          <br/>
-          <p>[Placeholder]</p>
-        </li>
-      </ol>
-    </div>
-
-    <!--Contact Us dialog box-->
-    <div class="dialogBox animated fadeInDown" id="contactBox">
-      <p>We can contacted at the following: <button class="buttonX" onclick="closeContact()">x</button></p>
-      <br/>
-      <ol>
-        <li>Jessye Lam
-          <br/>
-          <p>Email: jdlam@ryerson.ca</p></li>
-        <li>Christopher Seow
-          <br/>
-          <p>Email: cseow@ryerson.ca</p></li>
-        <li>Jonathan Bonilla
-          <br/>
-          <p>Email: jonathan.bonilla@ryerson.ca</p>
-        </li>
-      </ol>
-    </div>
-
-    <!--Shopping cart-->
-    <div class="dialogBox animated fadeInDown" id="shoppingCart">
-      <p>Shopping Cart<button class="buttonX" onclick="closeShoppingCart()">x</button></p>
-    </div>
-
-    <div class="imageContainer">
-      <!--"One medium box at the center with the image of the place"-->
-      <div id="image1"></div>
-      <div class="container">
-        <!--"Three small box at the center with the image of the place"-->
-        <div class="box">  
-            <div class="box-row">  
-                <div id="image2" class="box-cell box1"></div>
-            </div>  
+    <!--About modal-->
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--Modal title-->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+            <h4 class="modal-title" id="aboutModalLabel">Hello we're CPS630 Group #2!</h4>
+          </div>
+          <!--Modal body-->
+          <div class="modal-body">
+            <ol>
+              <li>Jessye Lam
+                <br/>
+                <p>Currently a 5th year Computer Science co-op student who is interested in pursuing a full stack job in the future.</p></li>
+              <li>Christopher Seow
+                <br/>
+                <p>[Placeholder]</p>
+              </li>
+              <li>Jonathan Bonilla
+                <br/>
+                <p>I am Computer Science student in my final year at Ryerson.</p>
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
+    </div>
+
+    <!--Contact Us modal-->
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--Modal title-->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+            <h4 class="modal-title" id="contactModalLabel">We can be contacted at the following:</h4>
+          </div>
+          <!--Modal body-->
+          <div class="modal-body">
+            <ol>
+              <li>Jessye Lam
+                <br/>
+                <p>Email: jdlam@ryerson.ca</p></li>
+              <li>Christopher Seow
+                <br/>
+                <p>Email: cseow@ryerson.ca</p></li>
+              <li>Jonathan Bonilla
+                <br/>
+                <p>Email: jonathan.bonilla@ryerson.ca</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Images-->
+    <div id="imageContainer" class="imageContainer" style="display: none">
+      <!--"One medium box at the center with the image of the place"-->
+      <div class="card animated fadeInUp" id="image1"></div>
+      <br/>
+      <div class="card animated fadeInUp" id="image2"></div>
+      <br/><br/>
     </div>
     <script type="text/javascript" src="home.js"></script>
   </body>

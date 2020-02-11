@@ -1,40 +1,52 @@
-.image1 {
+.image {
     display: block;
     margin-left: auto;
     margin-right: auto; 
 }
 
-.caption1 {
-    display: block;
-    text-align: center;
+.caption {
+	display: inline-block;
+	line-height: normal;
 }
 
-.container .box {  
-    width: 540px;  
-    margin: auto;  
-    display: table;
-}
-
-.container .box .box-row {  
-    display: table-row;  
-}  
-.container .box .box-cell {  
-    display: table-cell; 
-    width: 33%;
-    padding: 10px;
-}
-
-div {
+.imageContainer {
 	text-align: center;
+	padding: 2px 16px;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 40%;
+	border-radius: 5px;
+	background-color: #ffffff;
+	line-height: 40px;
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+	border-radius: 3px 3px 0 0;
+	width: 100%;
+}
+
+h4 {
+	font-weight: bold;
 }
 
 .container, .navbar {
-	background-color: #f4f4f4;
+	background-color: #f0f2ef;
 }
 
 .navbar, .navbar-default {
 	border: none;
-	margin-top: 4%;
+	margin-top: 3%;
 	animation-duration: 1.5s;
 }
 
@@ -75,21 +87,6 @@ ul.leftNav li {
 	padding: 0;
 }
 
-.dialogBox {
-	font-family: Verdana, sans-serif;
-	width: 1000px;
-	height: 500px;
-	border: 2px solid #000;
-	margin: 0 auto 15px;
-	text-align: left;
-	padding: 20px;
-	font-weight: bold;
-	border-radius: 10px;
-	background-color: #ddd;
-	border-color: #aaa; 
-	display: none;
-}
-
 .button {
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -113,11 +110,7 @@ ul.leftNav li {
 
 .button:hover::after {
 	width: 100%;
-	border-bottom: 2px solid #262626;
-}
-
-.buttonX {
-	float: right;
+	border-bottom: 2px solid #4B4E6D;
 }
 
 @media screen and (max-width: 680px) {
