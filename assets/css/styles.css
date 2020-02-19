@@ -1,3 +1,13 @@
+img {
+	border-radius: 3px 3px 0 0;
+	width: 100%;
+}
+
+.imageContainer {
+	text-align: center;
+	padding: 2px 16px;
+}
+
 .image {
     display: block;
     margin-left: auto;
@@ -7,11 +17,6 @@
 .caption {
 	display: inline-block;
 	line-height: normal;
-}
-
-.imageContainer {
-	text-align: center;
-	padding: 2px 16px;
 }
 
 .card {
@@ -31,13 +36,54 @@
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-img {
-	border-radius: 3px 3px 0 0;
-	width: 100%;
+.planCard {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	border-radius: 5px;
+	background-color: #ffffff;
+
+	display: block;
+	margin-right: auto;
+}
+
+.planCard:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.planCard-title {
+	font-weight: bold;
+	padding-left: 16px;
+	padding-top: 14px;
+	font-size: larger;
+}
+
+.planCard-body {
+	padding-left: 16px;
+	padding-bottom: 10px;
+	line-height: 10px;
+}
+
+.btn-info {
+	float: right;
+	margin-top: -7%;
+	margin-right: 3%;
+}
+
+hr {
+	margin-top: 0;
 }
 
 h4 {
 	font-weight: bold;
+}
+
+table {
+	margin-top: 3%;
+}
+
+th {
+	font-weight: bold;
+	color: #262626;
 }
 
 .container, .navbar {
@@ -47,6 +93,8 @@ h4 {
 .navbar, .navbar-default {
 	border: none;
 	margin-top: 3%;
+	list-style: none;
+	overflow: hidden;
 	animation-duration: 1.5s;
 }
 
@@ -57,8 +105,6 @@ h4 {
 }
 
 ul.rightNav {
-	list-style: none;
-	overflow: hidden;
 	float: right;
 	letter-spacing: 1px;
 }
@@ -75,8 +121,6 @@ ul.rightNav li a {
 }
 
 ul.leftNav {
-	list-style: none;
-	overflow: hidden;
 	float: left;
 	letter-spacing: 1px;
 	padding-top: 5px;
@@ -84,7 +128,7 @@ ul.leftNav {
 
 ul.leftNav li {
 	float: left;
-	padding: 0;
+	padding-right: 2px;
 }
 
 .button {
@@ -122,4 +166,11 @@ ul.leftNav li {
 		padding-left: 10px;
 		padding-right: 10px;
 	}
+}
+
+#map {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    height: 450px;
 }
