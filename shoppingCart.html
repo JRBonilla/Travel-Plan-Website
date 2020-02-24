@@ -8,14 +8,14 @@
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
       integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
       crossorigin="">
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
       integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
       crossorigin=""></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
   <body class="container">
     <div class="container-fluid">
@@ -30,22 +30,24 @@
           <tr>
             <td>
               <div class="planCard">
-                <p class="planCard-title">Plan #1</p>
-                <hr/>
+                <p class="planCard-title">North American Tour</p>
+                <hr>
                 <div class="planCard-body">
+                  <p><b>Locations: </b> CN Tower (CA), Niagara Falls (CA), White House (US), Grand Canyon (US)</p>
                   <p><b>Start Date:</b> March 1, 2020</p>
                   <p><b>Duration:</b> 2 months</p>
-                  <p><b>Air fare:</b> $2000 CAD</p>
+                  <p><b>Air fare:</b> $1000 CAD </p>
                   <p><b>Tour ID number:</b> 2390</p>
-                  <p><b>Total Price:</b> $2500 CAD</p>
+                  <p><b>Total Price:</b> $1500 CAD</p>
                   <button type="button" id="1" onclick="addToCart(this.id)" class="btn btn-info">Select</button>
                 </div>
               </div>
-              <br/>
+              <br>
               <div class="planCard">
-                <p class="planCard-title">Plan #2</p>
-                <hr/>
+                <p class="planCard-title">European Tour</p>
+                <hr>
                 <div class="planCard-body">
+                  <p><b>Locations:</b> Stonehenge (UK), Tower of London (UK), Eiffel Tower (FR), Louvre Museum (FR)</p>
                   <p><b>Start Date:</b> April 1, 2020</p>
                   <p><b>Duration:</b> 3 months</p>
                   <p><b>Air fare:</b> $1500 CAD</p>
@@ -62,8 +64,9 @@
         </tbody>
       </table>
       <div id="map"></div>
-      <br/>
-      <script type="text/javascript" src="assets/js/shoppingCart.js"></script>         
+      <br>
+      <script type="text/javascript" src="assets/js/shoppingCart.js"></script>
+      <script type="text/javascript" src="assets/js/Locations.js"></script>
     </div>
   </body>
 </html>

@@ -125,7 +125,7 @@ function updateAttractions() {
 
 $( document ).ready(function() {
   // Popular places
-  $("#popularPlaces").on("change",function() {
+  $("#popularPlaces").on("change", function() {
     // Display the image cards
     $('#imageContainer').show();
 
