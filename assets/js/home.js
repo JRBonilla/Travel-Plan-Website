@@ -48,6 +48,7 @@ var continentSelect = document.getElementById('continents');
 var countrySelect = document.getElementById('countries');
 var attractionsSelect = document.getElementById('attractions');
 var popularSelect = document.getElementById('popularPlaces');
+var current_attraction,current_attraction2 = 0;
 
 var continents = [
   createContinents('North America', 'am'),
@@ -123,31 +124,53 @@ function updateAttractions() {
   addOptions(attractionsSelect, options);
 }
 
+function readMoref1()
+{
+  document.cookie = "attract_type_id=" + current_attraction; 
+  window.location.href = 'pages/readMorePages/readMore.php';
+}
+
+function readMoref2()
+{
+  document.cookie = "attract_type_id=" + current_attraction2; 
+  window.location.href = 'pages/readMorePages/readMore.php';
+}
+
 $( document ).ready(function() {
   // Popular places
-  $("#popularPlaces").on("change", function() {
+  $("#popularPlaces").on("change",function() {
     // Display the image cards
     $('#imageContainer').show();
 
     if (this.value == 'whiteHouse') {
-      $("#image1").html("<img src='assets/img/whiteHouse.jpg' class='image' width='400' alt='White House'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore2.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/grandC.jpg' class='image' width='400' alt='Grand Canyon'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore6.html'>Read More</a></span>");
+      current_attraction = 1;
+      $("#image1").html("<img src='assets/whiteHouse.jpg' class='image' width='400' alt='White House'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      current_attraction2 = 2;
+      $("#image2").html("<img src='assets/grandC.jpg' class='image' width='400' alt='Grand Canyon'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'cnTower') {
-      $("#image1").html("<img src='assets/img/cnTower.jpg' class='image' width='400' alt='CN Tower'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore2.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/niagraF.jpg' class='image' width='400' alt='Niagra Falls'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore7.html'>Read More</a></span>");
+      current_attraction = 4;
+      $("#image1").html("<img src='assets/cnTower.jpg' class='image' width='400' alt='CN Tower'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      current_attraction2 = 3;
+      $("#image2").html("<img src='assets/niagraF.jpg' class='image' width='400' alt='Niagra Falls'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'wallC') {
-      $("#image1").html("<img src='assets/img/greatWoC.jpg' class='image' width='400' alt='Great Wall of China'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore3.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/terracotta.jpg' class='image' width='400' alt='Terracotta Army'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore12.html'>Read More</a></span>");
+      current_attraction = 11;
+      $("#image1").html("<img src='assets/greatWoC.jpg' class='image' width='400' alt='Great Wall of China'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      current_attraction2 = 12;
+      $("#image2").html("<img src='assets/terracotta.jpg' class='image' width='400' alt='Terracotta Army'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'eiffelT') {
-      $("#image1").html("<img src='assets/img/eiffelT.jpg' class='image' width='400' alt='Effiel Tower'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore4.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/louvreM.jpg' class='image' width='400' alt='Louvre Museum'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore10.html'>Read More</a></span>");
+      current_attraction = 7;
+      current_attraction2 = 8;
+      $("#image1").html("<img src='assets/eiffelT.jpg' class='image' width='400' alt='Effiel Tower'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/louvreM.jpg' class='image' width='400' alt='Louvre Museum'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'fuji') {
-      $("#image1").html("<img src='assets/img/fuji.jpg' class='image' width='400' alt='Mount Fuji'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore5.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/imperialT.jpg' class='image' width='400' alt='Imperial Tokyo'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore11.html'>Read More</a></span>");
+      current_attraction = 9;
+      current_attraction2 = 10;
+      $("#image1").html("<img src='assets/fuji.jpg' class='image' width='400' alt='Mount Fuji'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/imperialT.jpg' class='image' width='400' alt='Imperial Tokyo'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
   });
 
@@ -157,99 +180,138 @@ $( document ).ready(function() {
     $('#imageContainer').show();
 
     if (this.value == 'whiteHouse') {
-      $("#image1").html("<img src='assets/img/whiteHouse.jpg' class='image' width='400' alt='White House'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore2.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/grandC.jpg' class='image' width='400' alt='Grand Canyon'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore6.html'>Read More</a></span>");
+      current_attraction = 1;
+      current_attraction2 = 2;
+      $("#image1").html("<img src='assets/whiteHouse.jpg' class='image' width='400' alt='White House'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/grandC.jpg' class='image' width='400' alt='Grand Canyon'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'cnTower') {
-      $("#image1").html("<img src='assets/img/cnTower.jpg' class='image' width='400' alt='CN Tower'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore2.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/niagraF.jpg' class='image' width='400' alt='Niagra Falls'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore7.html'>Read More</a></span>");
+      current_attraction = 4;
+      current_attraction2 = 3;
+      $("#image1").html("<img src='assets/cnTower.jpg' class='image' width='400' alt='CN Tower'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/niagraF.jpg' class='image' width='400' alt='Niagra Falls'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'wallC') {
-      $("#image1").html("<img src='assets/img/greatWoC.jpg' class='image' width='400' alt='Great Wall of China'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore3.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/terracotta.jpg' class='image' width='400' alt='Terracotta Army'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore12.html'>Read More</a></span>");
+      current_attraction = 11;
+      $("#image1").html("<img src='assets/greatWoC.jpg' class='image' width='400' alt='Great Wall of China'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/terracotta.jpg' class='image' width='400' alt='Terracotta Army'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'eiffelT') {
-      $("#image1").html("<img src='assets/img/eiffelT.jpg' class='image' width='400' alt='Effiel Tower'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore4.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/louvreM.jpg' class='image' width='400' alt='Louvre Museum'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore10.html'>Read More</a></span>");
+      current_attraction = 7;
+      current_attraction2 = 8;
+      $("#image1").html("<img src='assets/eiffelT.jpg' class='image' width='400' alt='Effiel Tower'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/louvreM.jpg' class='image' width='400' alt='Louvre Museum'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'fuji') {
-      $("#image1").html("<img src='assets/img/fuji.jpg' class='image' width='400' alt='Mount Fuji'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore5.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/imperialT.jpg' class='image' width='400' alt='Imperial Tokyo'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore11.html'>Read More</a></span>");
+      current_attraction = 9;
+      current_attraction2 = 10;
+      $("#image1").html("<img src='assets/fuji.jpg' class='image' width='400' alt='Mount Fuji'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/imperialT.jpg' class='image' width='400' alt='Imperial Tokyo'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'grandC')
     {
-      $("#image1").html("<img src='assets/img/grandC.jpg' class='image' width='400' alt='Grand Canyon'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore6.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/whiteHouse.jpg' class='image' width='400' alt='White House'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore2.html'>Read More</a></span>");
+      current_attraction = 2;
+      current_attraction2 = 1;
+      $("#image1").html("<img src='assets/grandC.jpg' class='image' width='400' alt='Grand Canyon'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/whiteHouse.jpg' class='image' width='400' alt='White House'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'niagraF')
     {
-      $("#image1").html("<img src='assets/img/niagraF.jpg' class='image' width='400' alt='Niagra Falls'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore7.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/cnTower.jpg' class='image' width='400' alt='CN Tower'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore2.html'>Read More</a></span>");
+      current_attraction = 3;
+      current_attraction2 = 4;
+      $("#image1").html("<img src='assets/niagraF.jpg' class='image' width='400' alt='Niagra Falls'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/cnTower.jpg' class='image' width='400' alt='CN Tower'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'stoneH')
     {
-      $("#image1").html("<img src='assets/img/stoneH.jpg' class='image' width='400' alt='Stone Henge'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore8.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/towerL.jpg' class='image' width='400' alt='Tower of London'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore9.html'>Read More</a></span>");
+      current_attraction = 5;
+      current_attraction2 = 6;
+      $("#image1").html("<img src='assets/stoneH.jpg' class='image' width='400' alt='Stone Henge'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/towerL.jpg' class='image' width='400' alt='Tower of London'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'towerL')
     {
-      $("#image1").html("<img src='assets/img/towerL.jpg' class='image' width='400' alt='Tower of London'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore9.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/stoneH.jpg' class='image' width='400' alt='Stone Henge'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore8.html'>Read More</a></span>");
+      current_attraction = 6;
+      current_attraction2 = 5;
+      $("#image1").html("<img src='assets/towerL.jpg' class='image' width='400' alt='Tower of London'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/stoneH.jpg' class='image' width='400' alt='Stone Henge'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'louvreM')
     {
-      $("#image1").html("<img src='assets/img/louvreM.jpg' class='image' width='400' alt='Louvre Museum'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore10.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/louvreM.jpg' width='180' alt='Louvre Museum'> <span class='caption'>Text below the image <a href=''>Read More</a></span>");
+      current_attraction = 8;
+      current_attraction2 = 7;
+      $("#image1").html("<img src='assets/louvreM.jpg' class='image' width='400' alt='Louvre Museum'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/eiffelT.jpg' class='image' width='400' alt='Effiel Tower'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'imperialT')
     {
-      $("#image1").html("<img src='assets/img/imperialT.jpg' class='image' width='400' alt='Imperial Tokyo'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore11.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/eiffelT.jpg' class='image' width='400' alt='Effiel Tower'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore4.html'>Read More</a></span>");
+      current_attraction = 10;
+      current_attraction2 = 9;
+      $("#image1").html("<img src='assets/imperialT.jpg' class='image' width='400' alt='Imperial Tokyo'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/fuji.jpg' class='image' width='400' alt='Mount Fuji'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'terracotta')
     {
-      $("#image1").html("<img src='assets/img/terracotta.jpg' class='image' width='400' alt='Terracotta Army'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore12.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/greatWoC.jpg' class='image' width='400' alt='Great Wall of China'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore3.html'>Read More</a></span>");
+      current_attraction = 12;
+      current_attraction2 = 11;
+      $("#image1").html("<img src='assets/terracotta.jpg' class='image' width='400' alt='Terracotta Army'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/greatWoC.jpg' class='image' width='400' alt='Great Wall of China'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'reef')
     {
-      $("#image1").html("<img src='assets/img/reef.jpg' class='image' width='400' alt='Great Barrier Reef'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore13.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/uluru.jpg' class='image' width='400' alt='Uluru'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore14.html'>Read More</a></span>");
+      current_attraction = 13;
+      current_attraction2 = 14;
+      $("#image1").html("<img src='assets/reef.jpg' class='image' width='400' alt='Great Barrier Reef'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/uluru.jpg' class='image' width='400' alt='Uluru'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'uluru')
     {
-      $("#image1").html("<img src='assets/img/uluru.jpg' class='image' width='400' alt='Uluru'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore14.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/reef.jpg' class='image' width='400' alt='Great Barrier Reef'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore13.html'>Read More</a></span>");
+      current_attraction = 14;
+      current_attraction2 = 13;
+      $("#image1").html("<img src='assets/uluru.jpg' class='image' width='400' alt='Uluru'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/reef.jpg' class='image' width='400' alt='Great Barrier Reef'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'milford')
     {
-      $("#image1").html("<img src='assets/img/milford.jpg' class='image' width='400' alt='Milford Sound'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore15.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/cook.jpg' class='image' width='400' alt='Mount Cook'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore16.html'>Read More</a></span>");
+      current_attraction = 15;
+      current_attraction2 = 16;
+      $("#image1").html("<img src='assets/milford.jpg' class='image' width='400' alt='Milford Sound'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/cook.jpg' class='image' width='400' alt='Mount Cook'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'cook')
     {
-      $("#image1").html("<img src='assets/img/cook.jpg' class='image' width='400' alt='Mount Cook'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore16.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/milford.jpg' class='image' width='400' alt='Milford Sound'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore15.html'>Read More</a></span>");
+      current_attraction = 16;
+      current_attraction2 = 15;
+      $("#image1").html("<img src='assets/cook.jpg' class='image' width='400' alt='Mount Cook'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/milford.jpg' class='image' width='400' alt='Milford Sound'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'kruger')
     {
-      $("#image1").html("<img src='assets/img/kruger.jpg' class='image' width='400' alt='Kruger National Park'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore17.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/capeG.jpg' class='image' width='400' alt='Cape of Good Hope'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore18.html'>Read More</a></span>");
+      current_attraction = 17;
+      current_attraction2 = 18;
+      $("#image1").html("<img src='assets/kruger.jpg' class='image' width='400' alt='Kruger National Park'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/capeG.jpg' class='image' width='400' alt='Cape of Good Hope'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'capeG')
     {
-      $("#image1").html("<img src='assets/img/capeG.jpg' class='image' width='400' alt='Cape of Good Hope'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore18.html'>Read More</a></span>");
-      $("#image3").html("<img src='assets/img/kruger.jpg' class='image' width='400' alt='Kruger National Park'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore17.html'>Read More</a></span>");
+      current_attraction = 18;
+      current_attraction2 = 17;
+      $("#image1").html("<img src='assets/capeG.jpg' class='image' width='400' alt='Cape of Good Hope'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image3").html("<img src='assets/kruger.jpg' class='image' width='400' alt='Kruger National Park'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'yankari')
     {
-      $("#image1").html("<img src='assets/img/yankari.jpg' class='image' width='400' alt='Yankari National Park'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore19.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/zuma.jpg' class='image' width='400' alt='Zuma Rock'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore20.html'>Read More</a></span>");
+      current_attraction = 19;
+      current_attraction2 = 20;
+      $("#image1").html("<img src='assets/yankari.jpg' class='image' width='400' alt='Yankari National Park'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/zuma.jpg' class='image' width='400' alt='Zuma Rock'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
     else if (this.value == 'zuma')
     {
-      $("#image1").html("<img src='assets/img/zuma.jpg' class='image' width='400' alt='Zuma Rock'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore20.html'>Read More</a></span>");
-      $("#image2").html("<img src='assets/img/yankari.jpg' class='image' width='400' alt='Yankari National Park'> <span class='caption'>Text below the image <a href='pages/readMorePages/readMore19.html'>Read More</a></span>");
+      current_attraction = 20;
+      current_attraction2 = 19;
+      $("#image1").html("<img src='assets/zuma.jpg' class='image' width='400' alt='Zuma Rock'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/yankari.jpg' class='image' width='400' alt='Yankari National Park'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
     }
   });
 });
