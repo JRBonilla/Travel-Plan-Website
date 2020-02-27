@@ -38,11 +38,27 @@
                 {
                     document.getElementById("updateContainer").style.display = "block";
                 }
+                                else if ("<?php echo $operation ?>" == "select")
+                {
+                    document.getElementById("selectContainer").style.display = "block";
+                }
             });
         </script>
     </head>
 
     <body>
+        <div id="selectContainer">
+            <form method="POST" id="searchCForm">
+              <label> Search Country: </label>
+              <input type="text" id="searchCInput" name="searchCInput"><br><br>
+              <input type="submit" name="searchCSubmit">
+            </form>
+            <form method="POST" id="searchAForm">
+              <label> Search Attraction Type: </label>
+              <input type="text" id="searchAInput" name="searchAInput"><br><br>
+              <input type="submit" name="searchASubmit">
+            </form>
+        </div>
         <div id="insertContainer">
             <!--Insert New Continent-->
             <div id="inContinent">
@@ -508,7 +524,56 @@
                     echo "Error: " . $sqlQuery . "<br>" . $conn->error;
                 }
             }
-            
+            else if(isset($_POST['searchCSubmit'])){
+              $country = $_POST['searchCInput'];
+              $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_country` ON `tbl_attractions`.`country_id`=`tbl_country`.`country_id` WHERE `tbl_country`.`country`= '$country'";
+              $result = $conn->query($sql);
+              echo "<div class=\"searchDiv\">";
+              echo "<table border = \"2\">"; 
+              echo "<tr>";
+              echo "<th>Attraction</th>";
+              echo "<th>Date of Creation</th>";
+              echo "<th>Founder</th>";
+              echo "<th>Dimensions</th>";
+              echo "<th>Location</th>";
+              echo "</tr>";
+              while($row = $result->fetch_assoc()){
+                echo "<tr>";
+                echo "<td>".$row["attraction_name"]."</td>";
+                echo "<td>".$row["date-of-creation"]."</td>";
+                echo "<td>".$row["founder"]."</td>";
+                echo "<td>".$row["dimensions"]."</td>";
+                echo "<td>".$row["location"]."</td>";
+                echo "</tr>";
+              }
+              echo "</table>";
+              echo "</div>";
+            }
+              else if(isset($_POST['searchASubmit'])){
+              $attractionType = $_POST['searchAInput'];
+              $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_attract_type` ON `tbl_attractions`.`type_id`=`tbl_attract_type`.`type_id` WHERE `tbl_attract_type`.`type_name`= '$attractionType'";
+              $result = $conn->query($sql);
+              echo "<div class=\"searchDiv\">";
+              echo "<table border = \"2\">"; 
+              echo "<tr>";
+              echo "<th>Attraction</th>";
+              echo "<th>Date of Creation</th>";
+              echo "<th>Founder</th>";
+              echo "<th>Dimensions</th>";
+              echo "<th>Location</th>";
+              echo "</tr>";
+              while($row = $result->fetch_assoc()){
+                echo "<tr>";
+                echo "<td>".$row["attraction_name"]."</td>";
+                echo "<td>".$row["date-of-creation"]."</td>";
+                echo "<td>".$row["founder"]."</td>";
+                echo "<td>".$row["dimensions"]."</td>";
+                echo "<td>".$row["location"]."</td>";
+                echo "</tr>";
+              }
+              echo "</table>";
+              echo "</div>";
+            }
         ?>
         </br>
         <input type="button" onclick="location.href='../index.php';" value="Go Home" />
