@@ -121,6 +121,16 @@
           <!--Modal body-->
           <div class="modal-body">
             <!-- TODO: Add a form with: a search bar to enter text, check boxes or radio btns to filter by country, attraction etc, and a submit btn-->
+            <form method="POST" id="searchCForm">
+              <label> Search Country: </label>
+              <input type="text" id="searchInput" name="searchInput"><br><br>
+              <input type="submit" name="searchCSubmit">
+            </form>
+            <form method="POST" id="searchAForm">
+              <label> Search Attraction Type: </label>
+              <input type="text" id="searchInput" name="searchInput"><br><br>
+              <input type="submit" name="searchCSubmit">
+            </form>
           </div>
         </div>
       </div>
