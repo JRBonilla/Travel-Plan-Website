@@ -188,7 +188,7 @@
               $country = $_POST['searchCInput'];
               $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_country` ON `tbl_attractions`.`country_id`=`tbl_country`.`country_id` WHERE `tbl_country`.`country`= '$country'";
               $result = $conn->query($sql);
-              echo "<div class=\"searchDiv>\"";
+              echo "<div class=\"searchDiv>\">";
               echo "<table border = \"2\">"; 
               echo "<tr>";
               echo "<th>Date of Creation</th>";
