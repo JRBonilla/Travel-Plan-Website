@@ -30,6 +30,7 @@
             <li><a class="button" data-toggle="modal" data-target="#aboutModal">About Us</a></li>
             <li><a class="button" data-toggle="modal" data-target="#contactModal">Contact Us</a></li>
             <li><a class="button" data-toggle="modal" data-target="#searchModal">Search</a></li>
+            <li><a class="button" data-toggle="modal" data-target="#maintainModal">DBMaintain</a></li>
             <li><a class="button" href="shoppingCart.html">Shopping Cart</a></li>
           </ul>
           <!--Parts 2-3 - Left side-->
@@ -120,6 +121,42 @@
           <!--Modal body-->
           <div class="modal-body">
             <!-- TODO: Add a form with: a search bar to enter text, check boxes or radio btns to filter by country, attraction etc, and a submit btn-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--DB Maintain modal-->
+    <div class="modal fade" id="maintainModal" tabindex="-1" role="dialog" aria-labelledby="maintainModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--Modal title-->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+            <h4 class="modal-title" id="maintainModalLabel">DB Maintain</h4>
+          </div>
+          <!--Modal body-->
+          <div class="modal-body">
+            <div id="maintainAuthContainer">
+              <label for="txtMaintain">Admin Access Required. Enter Password:</label>
+              <input type="password" id="txtMaintain" name="txtMaintain">
+              <button type="btnMaintain" onclick="authMaintainPwd()">Enter</button> 
+              <label id="lblIncorrect"><b></b>Incorrect Password</b></label>
+            </div>
+            <div id="maintainContainer" style display="none">
+              <label for="selectOP">Choose an Operation:</label>
+              <!--Select operation dropdown-->
+              <form action="pages/maintain.php" method="post">
+                <select id="selectOP" name="selectOP">
+                  <option disabled selected value> -- select an operation -- </option>
+                  <option value="insert">INSERT</option>
+                  <option value="delete">DELETE</option>
+                  <option value="select">SELECT</option>
+                  <option value="update">UPDATE</option>
+                </select>
+                <input type="submit" value="GO">
+              </form>
+            </div>
           </div>
         </div>
       </div>

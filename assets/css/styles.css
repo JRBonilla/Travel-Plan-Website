@@ -200,3 +200,7 @@ ul.leftNav li {
     float: right;
     margin-right: 18px;
 }
+
+#maintainContainer, #lblIncorrect {
+    display: none;
+}

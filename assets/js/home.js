@@ -136,6 +136,22 @@ function readMoref2()
   window.location.href = 'pages/readMorePages/readMore.php';
 }
 
+function authMaintainPwd()
+{
+    pwd = document.getElementById("txtMaintain").value;
+    //console.log(pwd)
+    if(pwd == "password")
+    {
+        document.getElementById("maintainAuthContainer").style.display = "none";
+        document.getElementById("lblIncorrect").style.display = "none";
+        document.getElementById("maintainContainer").style.display = "block";
+    }
+    else
+    {
+        document.getElementById("lblIncorrect").style.display = "block";
+    }
+}
+
 $( document ).ready(function() {
   // Popular places
   $("#popularPlaces").on("change",function() {

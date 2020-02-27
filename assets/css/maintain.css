@@ -1,0 +1,7 @@
+#insertContainer, #deleteContainer, #selectContainer, #updateContainer, #selectOP {
+    display: none;
+}
+
+#btnInContinen, #btnInCountry {
+    float: left;
+}
