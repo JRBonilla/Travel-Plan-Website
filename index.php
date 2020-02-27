@@ -134,7 +134,7 @@
           </div>
         </div>
       </div>
-    </div>$_POST['txtContinent'];
+    </div>
 
     <!--DB Maintain modal-->
     <div class="modal fade" id="maintainModal" tabindex="-1" role="dialog" aria-labelledby="maintainModalLabel">
@@ -241,7 +241,6 @@
       <div class="card animated fadeInUp" id="image3"></div>
       <br><br>
     </div>
-  ?php
     <script type="text/javascript" src="assets/js/home.js"></script>
   </body>
 </html>
