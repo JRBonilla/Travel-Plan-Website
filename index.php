@@ -211,7 +211,7 @@
               $attractionType = $_POST['searchAInput'];
               $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_attract_type` ON `tbl_attractions`.`type_id`=`tbl_attract_type`.`type_id` WHERE `tbl_attract_type`.`type_name`= '$attractionType'";
               $result = $conn->query($sql);
-              echo "<div class=\"searchDiv>\"";
+              echo "<div class=\"searchDiv>\">";
               echo "<table border = \"2\">"; 
               echo "<tr>";
               echo "<th>Date of Creation</th>";
