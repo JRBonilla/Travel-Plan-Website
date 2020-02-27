@@ -213,9 +213,10 @@
               $attractionType = $_POST['searchAInput'];
               $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_attract_type` ON `tbl_attractions`.`type_id`=`tbl_attract_type`.`type_id` WHERE `tbl_attract_type`.`type_name`= '$attractionType'";
               $result = $conn->query($sql);
-              echo "<div class=\"searchDiv>\">";
+              echo "<div class=\"searchDiv\">";
               echo "<table border = \"2\">"; 
               echo "<tr>";
+              echo "<th>Attraction</th>";
               echo "<th>Date of Creation</th>";
               echo "<th>Founder</th>";
               echo "<th>Dimensions</th>";
@@ -223,6 +224,7 @@
               echo "</tr>";
               while($row = $result->fetch_assoc()){
                 echo "<tr>";
+                echo "<td>".$row["attraction_name"]."</td>";
                 echo "<td>".$row["date-of-creation"]."</td>";
                 echo "<td>".$row["founder"]."</td>";
                 echo "<td>".$row["dimensions"]."</td>";
