@@ -92,6 +92,17 @@ var attractions = [
   createAttractions('Cape of Good Hope', 'capeG', 'saf'),
   createAttractions('Yankari National Park', 'yankari', 'nig'),
   createAttractions('Zuma Rock', 'zuma', 'nig'),
+  createAttractions('In and Out', 'InO', 'usa'),
+  createAttractions('Victoria Street Injection Site', 'VSIS', 'can'),
+  createAttractions('Big Ben', 'bigB', 'uk'),
+  createAttractions('Notre-Dame', 'notreD', 'fr'),
+  createAttractions('Akihabara', 'aki', 'jap'),
+  createAttractions('Summer Palace', 'summerP', 'cn'),
+  createAttractions('Sydney Harbor Bridge', 'sydneyB', 'australia'),
+  createAttractions('Waitomo', 'waitomo', 'nz'),
+  createAttractions('Robben Island', 'robben', 'saf'),
+  createAttractions('Olumo Rock', 'olumo', 'nig'),
+  
 ];
 
 var popularPlaces = [
@@ -136,6 +147,12 @@ function readMoref2()
   window.location.href = 'pages/readMorePages/readMore.php';
 }
 
+function readMoref3()
+{
+  document.cookie = "attract_type_id=" + current_attraction3; 
+  window.location.href = 'pages/readMorePages/readMore.php';
+}
+
 $( document ).ready(function() {
   // Popular places
   $("#popularPlaces").on("change",function() {
@@ -147,6 +164,8 @@ $( document ).ready(function() {
       $("#image1").html("<img src='assets/whiteHouse.jpg' class='image' width='400' alt='White House'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
       current_attraction2 = 2;
       $("#image2").html("<img src='assets/grandC.jpg' class='image' width='400' alt='Grand Canyon'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
+      current_attraction3 = 22;
+      $("#image3").html("<img src='assets/grandC.jpg' class='image' width='400' alt='Grand Canyon'> <span class='caption'>Text below the image <a href='#' onclick='readMoref3()'>Read More</a></span>");
     }
     else if (this.value == 'cnTower') {
       current_attraction = 4;
