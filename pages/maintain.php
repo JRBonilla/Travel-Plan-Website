@@ -49,14 +49,16 @@
     <body>
         <div id="selectContainer">
             <form method="POST" id="searchCForm">
-              <label> Search Country: </label>
-              <input type="text" id="searchCInput" name="searchCInput"><br><br>
-              <input type="submit" name="searchCSubmit">
+                <input type="text" id="selectOP" name="selectOP" value="<?php echo $operation ?>">
+                <label> Search Country: </label>
+                <input type="text" id="searchCInput" name="searchCInput"><br><br>
+                <input type="submit" name="searchCSubmit">
             </form>
             <form method="POST" id="searchAForm">
-              <label> Search Attraction Type: </label>
-              <input type="text" id="searchAInput" name="searchAInput"><br><br>
-              <input type="submit" name="searchASubmit">
+                <input type="text" id="selectOP" name="selectOP" value="<?php echo $operation ?>">  
+                <label> Search Attraction Type: </label>
+                <input type="text" id="searchAInput" name="searchAInput"><br><br>
+                <input type="submit" name="searchASubmit">
             </form>
         </div>
         <div id="insertContainer">
@@ -257,9 +259,7 @@
                 </form>
             </div>  
         </div>
-        <div id="selectContainer">
 
-        </div>
         <div id="updateContainer">
             <!--Update Continent-->
             <div id="upContinent">
@@ -526,7 +526,7 @@
             }
             else if(isset($_POST['searchCSubmit'])){
               $country = $_POST['searchCInput'];
-              $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_country` ON `tbl_attractions`.`country_id`=`tbl_country`.`country_id` WHERE `tbl_country`.`country`= '$country'";
+              $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_country` ON `tbl_attractions`.`country_id`=`tbl_country`.`country_id` WHERE `tbl_country`.`country` LIKE '$country'";
               $result = $conn->query($sql);
               echo "<div class=\"searchDiv\">";
               echo "<table border = \"2\">"; 
@@ -551,7 +551,7 @@
             }
               else if(isset($_POST['searchASubmit'])){
               $attractionType = $_POST['searchAInput'];
-              $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_attract_type` ON `tbl_attractions`.`type_id`=`tbl_attract_type`.`type_id` WHERE `tbl_attract_type`.`type_name`= '$attractionType'";
+              $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_attract_type` ON `tbl_attractions`.`type_id`=`tbl_attract_type`.`type_id` WHERE `tbl_attract_type`.`type_name` LIKE '$attractionType'";
               $result = $conn->query($sql);
               echo "<div class=\"searchDiv\">";
               echo "<table border = \"2\">"; 

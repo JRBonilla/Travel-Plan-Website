@@ -4,7 +4,7 @@
         
     -->
     <head>
-        <link rel="stylesheet" type="text/css" href="../../assets/readMoreStyles.css">
+        <link rel="stylesheet" type="text/css" href="../../assets/css/readMoreStyles.css">
     </head>
     <body>
         <?php

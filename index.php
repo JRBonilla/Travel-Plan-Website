@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse">
           <!--Part 1 - Right side-->
           <ul class="nav navbar-nav rightNav">
-            <li><a class="button" href="index.html">Home</a></li>
+            <li><a class="button" href="index.php">Home</a></li>
             <li><a class="button" data-toggle="modal" data-target="#aboutModal">About Us</a></li>
             <li><a class="button" data-toggle="modal" data-target="#contactModal">Contact Us</a></li>
             <li><a class="button" data-toggle="modal" data-target="#searchModal">Search</a></li>
