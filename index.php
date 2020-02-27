@@ -237,6 +237,8 @@
       <div class="card animated fadeInUp" id="image1"></div>
       <br>
       <div class="card animated fadeInUp" id="image2"></div>
+      <br>
+      <div class="card animated fadeInUp" id="image3"></div>
       <br><br>
     </div>
   ?php
