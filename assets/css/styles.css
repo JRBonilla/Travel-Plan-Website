@@ -69,6 +69,11 @@ img {
 	margin-right: 18px;
 }
 
+.searchDiv {
+	position: fixed;
+	right: 100px;
+	bottom: 100px;
+	}
 hr {
 	margin-top: 0;
 }
@@ -204,3 +209,5 @@ ul.leftNav li {
 #maintainContainer, #lblIncorrect {
     display: none;
 }
+
+
