@@ -191,6 +191,7 @@
               echo "<div class=\"searchDiv>\">";
               echo "<table border = \"2\">"; 
               echo "<tr>";
+              echo "<th>Attraction</th>";
               echo "<th>Date of Creation</th>";
               echo "<th>Founder</th>";
               echo "<th>Dimensions</th>";
@@ -198,6 +199,7 @@
               echo "</tr>";
               while($row = $result->fetch_assoc()){
                 echo "<tr>";
+                echo "<td>".$row["attraction_name"]."</td>";
                 echo "<td>".$row["date-of-creation"]."</td>";
                 echo "<td>".$row["founder"]."</td>";
                 echo "<td>".$row["dimensions"]."</td>";
