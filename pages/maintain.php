@@ -224,7 +224,7 @@
                         $sqlQuery = "SELECT * FROM `tbl_country` ";
                         $result = $conn->query($sqlQuery);
                         echo '<select id="selectDelCountry" name="selectDelCountry">';
-                        echo "<option disabled selected value> -- select a attraction type -- </option>";
+                        echo "<option disabled selected value> -- select a country type -- </option>";
                         while($row = $result->fetch_assoc()){
                             echo "<option value='".$row['country_id']."'>".$row['country']."</option>";
                         }
@@ -247,7 +247,7 @@
                         $sqlQuery = "SELECT * FROM `tbl_attractions` ";
                         $result = $conn->query($sqlQuery);
                         echo '<select id="selectDelAttraction" name="selectDelAttraction">';
-                        echo "<option disabled selected value> -- select a attraction type -- </option>";
+                        echo "<option disabled selected value> -- select an attraction -- </option>";
                         while($row = $result->fetch_assoc()){
                             echo "<option value='".$row['attract_id']."'>".$row['attraction_name']."</option>";
                         }
@@ -272,7 +272,7 @@
                         $sqlQuery = "SELECT * FROM `tbl_continent` ";
                         $result = $conn->query($sqlQuery);
                         echo '<select id="selectUpContinent" name="selectUpContinent">';
-                        echo "<option disabled selected value> -- select a attraction type -- </option>";
+                        echo "<option disabled selected value> -- select a continent type -- </option>";
                         while($row = $result->fetch_assoc()){
                             echo "<option value='".$row['continent_id']."'>".$row['continent']."</option>";
                         }
@@ -298,7 +298,7 @@
                         $sqlQuery = "SELECT * FROM `tbl_country` ";
                         $result = $conn->query($sqlQuery);
                         echo '<select id="selectUpCountry" name="selectUpCountry">';
-                        echo "<option disabled selected value> -- select a attraction type -- </option>";
+                        echo "<option disabled selected value> -- select a country -- </option>";
                         while($row = $result->fetch_assoc()){
                             echo "<option value='".$row['country_id']."'>".$row['country']."</option>";
                         }
@@ -318,7 +318,7 @@
                 <form method="post">
                     <h2>Update an Attraction</h2>
                     <input type="text" id="selectOP" name="selectOP" value="<?php echo $operation ?>">
-                    <label for="selectUpAttraction">Select Attraction to Delete from DB: </label>
+                    <label for="selectUpAttraction">Select Attraction to Update from DB: </label>
                     <!--Loop through db to get the Continents so user can select one to delete-->
                     <?php
                         $sqlQuery = "SELECT * FROM `tbl_attractions` ";
