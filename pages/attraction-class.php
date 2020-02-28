@@ -10,10 +10,6 @@ class Attraction
     private $dimensions;
     private $founder;
     private $location;
-    private $imagePath1;
-    private $imagePath2;
-    private $imageAlt1;
-    private $imageAlt2;
     private $user1;
     private $userDate1;
     private $comment1;
@@ -54,10 +50,6 @@ class Attraction
         $this->founder = $row["founder"];
         $this->location = $row["location"];
 
-        $this->imagePath1 = $row["image_path_1"];
-        $this->imagePath2 = $row["image_path_2"];
-        $this->imageAlt1 = $row["image_alt_1"];
-        $this->imageAlt2 = $row["image_alt_2"];
         $this->user1 = $row["user_1"];
         $this->userDate1 = $row["user_date_1"];   
         $this->comment1 = $row["comment_1"];
@@ -93,22 +85,6 @@ class Attraction
    public function getLocation() 
    {
         return $this->location;       
-   }
-   public function getImagePath1() 
-   {
-        return $this->imagePath1;       
-   }
-   public function getImagePath2() 
-   {
-        return $this->imagePath2;       
-   }
-   public function getImageAlt1() 
-   {
-        return $this->imageAlt1;       
-   }
-   public function getImageAlt2() 
-   {
-        return $this->imageAlt2;       
    }
    public function getUser1() 
    {
