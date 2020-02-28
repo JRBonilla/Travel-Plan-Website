@@ -1,4 +1,3 @@
-
 function createContinents(name, id) {
   return {
     name: name,
@@ -519,18 +518,3 @@ $( document ).ready(function() {
 
 addOptions(continentSelect, continents);
 addOptions(popularSelect, popularPlaces);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
