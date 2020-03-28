@@ -168,7 +168,48 @@ function authMaintainPwd()
     }
 }
 
+//Get cookie code found on w3schools
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  function logout(){
+    document.cookie = "loggedIn=N"; 
+    location.reload();
+  }
+
 $( document ).ready(function() {
+    //check if someone is logged in
+    var loggedInCheck = getCookie("loggedIn");
+    //alert(loggedInCheck);
+    //if user is logged in
+    if (loggedInCheck == "Y")
+    {
+        var username = getCookie("username");
+        document.getElementById("loggedIN").innerHTML = "Currently Logged in as:" + username;
+        document.getElementById("loggedIN").style.display = "block";
+        document.getElementById("btnLoggedIn").style.display = "none";
+        document.getElementById("btnLoggedOut").style.display = "Block";
+    }
+    //else if user is not logged in
+    else
+    {
+        document.getElementById("loggedIN").style.display = "none";
+        document.getElementById("btnLoggedIn").style.display = "block";
+        document.getElementById("btnLoggedOut").style.display = "none";
+    }
   // Popular places
   $("#popularPlaces").on("change",function() {
     // Display the image cards

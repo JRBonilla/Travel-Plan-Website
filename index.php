@@ -32,6 +32,9 @@
             <li><a class="button" data-toggle="modal" data-target="#searchModal">Search</a></li>
             <li><a class="button" data-toggle="modal" data-target="#maintainModal">DBMaintain</a></li>
             <li><a class="button" href="shoppingCart.html">Shopping Cart</a></li>
+            <li><a class="button" id="btnLoggedIn" data-toggle="modal" data-target="#loginModal">Login</a></li>
+            <li><a class="button" id="btnLoggedOut" onclick="logout()">Logout</a></li>
+            <li><div id="loggedIN"></div></li>
           </ul>
           <!--Parts 2-3 - Left side-->
           <ul class="nav navbar-nav leftNav">
@@ -135,6 +138,33 @@
         </div>
       </div>
     </div>
+
+  <!--Login Modal-->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--Modal title-->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+            <h4 class="modal-title" id="loginModalLabel">Login</h4>
+          </div>
+          <!--Modal body-->
+          <div class="modal-body">
+            <div id="loginAuthContainer">
+                <form action="assets\php\login.php" method="post">
+                    <label for="txtLoginUser">Enter Username:</label>
+                    <input type="text" id="txtLoginUser" name="txtLoginUser">
+                    <label for="txtLoginPass">Enter Password:</label>
+                    <input type="password" id="txtLoginPass" name="txtLoginPass">
+                    <input type="submit" value="Enter">
+                </form>
+                <label id="lbldenied" style="display:none"><b></b>Incorrect Username / Password</b></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!--DB Maintain modal-->
     <div class="modal fade" id="maintainModal" tabindex="-1" role="dialog" aria-labelledby="maintainModalLabel">
