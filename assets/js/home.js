@@ -193,7 +193,7 @@ function getCookie(cname) {
 $( document ).ready(function() {
     //check if someone is logged in
     var loggedInCheck = getCookie("loggedIn");
-    //alert(loggedInCheck);
+    alert(loggedInCheck);
     //if user is logged in
     if (loggedInCheck == "Y")
     {
@@ -201,7 +201,7 @@ $( document ).ready(function() {
         document.getElementById("loggedIN").innerHTML = "Currently Logged in as:" + username;
         document.getElementById("loggedIN").style.display = "block";
         document.getElementById("btnLoggedIn").style.display = "none";
-        document.getElementById("btnLoggedOut").style.display = "Block";
+        document.getElementById("btnLoggedOut").style.display = "block";
     }
     //else if user is not logged in
     else

@@ -35,6 +35,7 @@
             <li><a class="button" id="btnLoggedIn" data-toggle="modal" data-target="#loginModal">Login</a></li>
             <li><a class="button" id="btnLoggedOut" onclick="logout()">Logout</a></li>
             <li><div id="loggedIN"></div></li>
+            <li><a class="button" data-toggle="modal" data-target="#registerModal">Register</a></li>
           </ul>
           <!--Parts 2-3 - Left side-->
           <ul class="nav navbar-nav leftNav">
@@ -165,6 +166,41 @@
       </div>
     </div>
 
+    <!--Register Modal-->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--Modal title-->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+            <h4 class="modal-title" id="registerModal">Register</h4>
+          </div>
+          <!--Modal body-->
+          <div class="modal-body">
+            <div id="registerAuthContainer">
+                <form action="assets\php\register.php" method="post">
+                    <label for="txtRegisterUser">Enter Username:</label>
+                    <input type="text" id="txtRegisterUser" name="txtRegisterUser">
+                    <label for="txtRegisterPass">Enter Password:</label>
+                    <input type="password" id="txtRegisterPass" name="txtRegisterPass">
+                    <label for="txtFName">Enter First Name:</label>
+                    <input type="text" id="txtFName" name="txtFName">
+                    <label for="txtLName">Enter Last Name:</label>
+                    <input type="text" id="txtLName" name="txtLName">
+                    <label for="txtAddress">Address:</label>
+                    <input type="text" id="txtAddress" name="txtAddress">
+                    <label for="txtTelNo">Tel No:</label>
+                    <input type="text" id="txtTelNo" name="txtTelNo">
+                    <label for="txtEmail">Email:</label>
+                    <input type="text" id="txtEmail" name="txtEmail">
+                    <input type="submit" value="Enter">
+                </form>
+                <label id="lbldenied" style="display:none"><b></b>Incorrect Username / Password</b></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!--DB Maintain modal-->
     <div class="modal fade" id="maintainModal" tabindex="-1" role="dialog" aria-labelledby="maintainModalLabel">
