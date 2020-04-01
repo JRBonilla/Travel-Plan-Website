@@ -24,15 +24,21 @@
             $row = $result->fetch_assoc();
             if($row["password"] == $password)
             {
-                $_SESSION["loggedIn"] = "Y";
-                $_SESSION["username"] = $username;
+                $admin = $row["admin"];
+                //clear cookies
+                //setcookie("loggedIn", "", time() - 3600);
+                //setcookie("username", "", time() - 3600);
+
+                //set cookies
                 setcookie("loggedIn", "Y", time() + (86400 * 30), "/");
                 setcookie("username", $username, time() + (86400 * 30), "/");
+                setcookie("admin",$admin, time() + (86400 * 30), "/");
                 echo 'Login Successful, returning to home screen';
             }
             else
             {
                 echo 'Login Unsuccessful, returning to home screen'; 
+                setcookie("loggedIn", "N", time() + (86400 * 30), "/");
                 $_SESSION["loggedIn"] = "N";
             }
 

@@ -154,17 +154,21 @@ function readMoref3()
 
 function authMaintainPwd()
 {
-    pwd = document.getElementById("txtMaintain").value;
+    //pwd = document.getElementById("txtMaintain").value;
+    
     //console.log(pwd)
-    if(pwd == "password")
+    var admin = getCookie("admin");
+    if(admin == 1)
     {
-        document.getElementById("maintainAuthContainer").style.display = "none";
-        document.getElementById("lblIncorrect").style.display = "none";
+        //alert("correct");
         document.getElementById("maintainContainer").style.display = "block";
+        document.getElementById("maintainAuthContainer").style.display = "none";
+        document.getElementById("btnAdmin").style.display = "block";
+        //document.getElementById("lblIncorrect").style.display = "none";
     }
     else
     {
-        document.getElementById("lblIncorrect").style.display = "block";
+       // document.getElementById("lblIncorrect").style.display = "block";
     }
 }
 
@@ -185,15 +189,30 @@ function getCookie(cname) {
     return "";
   }
 
-  function logout(){
-    document.cookie = "loggedIn=N"; 
-    location.reload();
-  }
+    function logout(){
+        //clear cookies
+        //document.cookie = "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        //set cookie
+        //document.cookie = "loggedIn=N"; 
+        setCookie("loggedIn","N",1);
+        setCookie("admin",0,1);
+        location.reload();
+    }
+
+    //set cokie function from w3schools
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
 
 $( document ).ready(function() {
     //check if someone is logged in
     var loggedInCheck = getCookie("loggedIn");
-    alert(loggedInCheck);
+    var admin = getCookie("admin");
+    authMaintainPwd();
     //if user is logged in
     if (loggedInCheck == "Y")
     {
@@ -202,6 +221,7 @@ $( document ).ready(function() {
         document.getElementById("loggedIN").style.display = "block";
         document.getElementById("btnLoggedIn").style.display = "none";
         document.getElementById("btnLoggedOut").style.display = "block";
+        document.getElementById("btnRegister").style.display = "none";
     }
     //else if user is not logged in
     else
@@ -209,6 +229,7 @@ $( document ).ready(function() {
         document.getElementById("loggedIN").style.display = "none";
         document.getElementById("btnLoggedIn").style.display = "block";
         document.getElementById("btnLoggedOut").style.display = "none";
+        document.getElementById("btnRegister").style.display = "block";
     }
   // Popular places
   $("#popularPlaces").on("change",function() {

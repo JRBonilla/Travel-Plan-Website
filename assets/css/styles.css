@@ -210,7 +210,7 @@ ul.leftNav li {
     display: none;
 }
 
-#loggedIN, #btnLoggedOut{
+#loggedIN, #btnLoggedOut, #btnAdmin{
     display: none;
 }
 

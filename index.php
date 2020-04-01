@@ -30,12 +30,13 @@
             <li><a class="button" data-toggle="modal" data-target="#aboutModal">About Us</a></li>
             <li><a class="button" data-toggle="modal" data-target="#contactModal">Contact Us</a></li>
             <li><a class="button" data-toggle="modal" data-target="#searchModal">Search</a></li>
-            <li><a class="button" data-toggle="modal" data-target="#maintainModal">DBMaintain</a></li>
+            <li><a class="button" data-toggle="modal" onclick="authMaintainPwd()" data-target="#maintainModal">DBMaintain</a></li>
             <li><a class="button" href="shoppingCart.html">Shopping Cart</a></li>
             <li><a class="button" id="btnLoggedIn" data-toggle="modal" data-target="#loginModal">Login</a></li>
             <li><a class="button" id="btnLoggedOut" onclick="logout()">Logout</a></li>
             <li><div id="loggedIN"></div></li>
-            <li><a class="button" data-toggle="modal" data-target="#registerModal">Register</a></li>
+            <li><a class="button" id="btnRegister" data-toggle="modal" data-target="#registerModal">Register</a></li>
+            <li><a class="button" id="btnAdmin" data-toggle="modal" data-target="#adminModal">admin</a></li>
           </ul>
           <!--Parts 2-3 - Left side-->
           <ul class="nav navbar-nav leftNav">
@@ -202,6 +203,44 @@
       </div>
     </div>
 
+     <!--Admin Modal-->
+     <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--Modal title-->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+            <h4 class="modal-title" id="adminModal">Admin</h4>
+          </div>
+          <!--Modal body-->
+          <div class="modal-body">
+            <h5>Register a User<h4>
+            <div id="registerUserContainer">
+                <form action="assets\php\register.php" method="post">
+                    <label for="txtRegisterUser">Enter Username:</label>
+                    <input type="text" id="txtRegisterUser" name="txtRegisterUser">
+                    <label for="txtRegisterPass">Enter Password:</label>
+                    <input type="password" id="txtRegisterPass" name="txtRegisterPass">
+                    <label for="txtFName">Enter First Name:</label>
+                    <input type="text" id="txtFName" name="txtFName">
+                    <label for="txtLName">Enter Last Name:</label>
+                    <input type="text" id="txtLName" name="txtLName">
+                    <label for="txtAddress">Address:</label>
+                    <input type="text" id="txtAddress" name="txtAddress">
+                    <label for="txtTelNo">Tel No:</label>
+                    <input type="text" id="txtTelNo" name="txtTelNo">
+                    <label for="txtEmail">Email:</label>
+                    <input type="text" id="txtEmail" name="txtEmail">
+                    <input type="submit" value="Enter">
+                </form>
+                <label id="lbldenied" style="display:none"><b></b>Incorrect Username / Password</b></label>
+            </div>
+            <h5>Other Stuff</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!--DB Maintain modal-->
     <div class="modal fade" id="maintainModal" tabindex="-1" role="dialog" aria-labelledby="maintainModalLabel">
       <div class="modal-dialog" role="document">
@@ -214,10 +253,7 @@
           <!--Modal body-->
           <div class="modal-body">
             <div id="maintainAuthContainer">
-              <label for="txtMaintain">Admin Access Required. Enter Password:</label>
-              <input type="password" id="txtMaintain" name="txtMaintain">
-              <button type="btnMaintain" onclick="authMaintainPwd()">Enter</button> 
-              <label id="lblIncorrect"><b></b>Incorrect Password</b></label>
+              <label for="txtMaintain">Admin Access Required. Login to an Admin Account to continue.</label>
             </div>
             <div id="maintainContainer" style display="none">
               <label for="selectOP">Choose an Operation:</label>

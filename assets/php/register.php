@@ -34,11 +34,11 @@
             {
                 $sqlQuery2 = "INSERT INTO `tbl_users` (`username`, `password`, `fname`, `lname`, `address`, `telno`, `email`) VALUES ('$username', '$password', '$fname', '$lname', '$address', '$telNo', '$email')";
                 if ($conn->query($sqlQuery2) === TRUE) {
-                    $_SESSION["loggedIn"] = "Y";
-                    $_SESSION["username"] = $username;
-                    setcookie("loggedIn", "Y", time() + (86400 * 30), "/");
-                    setcookie("username", $username, time() + (86400 * 30), "/");
-                    echo 'Successfully Registered,  logged in and returning to home screen';
+                   // $_SESSION["loggedIn"] = "Y";
+                    //$_SESSION["username"] = $username;
+                    //setcookie("loggedIn", "Y", time() + (86400 * 30), "/");
+                    //setcookie("username", $username, time() + (86400 * 30), "/");
+                    echo 'Successfully Registered, returning to home screen';
 
                 } else {
                     echo "Error: " . $sqlQuery . "<br>" . $conn->error;
