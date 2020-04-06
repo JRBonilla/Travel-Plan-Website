@@ -153,6 +153,12 @@ function readMoref3()
   window.location.href = 'pages/readMorePages/readMore.php';
 }
 
+function readMore (id)
+{
+  document.cookie = "attract_type_id=" + id;
+  window.location.href = 'pages/readMorePages/readMore.php';
+}
+
 $( document ).ready(function() {
   // Popular places
   $("#popularPlaces").on("change",function() {

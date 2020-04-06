@@ -136,6 +136,19 @@
               <input type="text" id="searchAInput" name="searchAInput"><br><br>
               <input type="submit" name="searchASubmit">
             </form>
+			<form method="POST" id="searchNForm">
+              <label> Search Attraction Name: </label>
+              <input type="text" id="searchNInput" name="searchNInput"><br><br>
+              <input type="submit" name="searchNSubmit">
+            </form>
+			<form method="POST" id="searchPForm">
+              <label> Sort By Price: </label>
+			  <select id="searchPInput">
+			  <option value="ASC">Ascending</option>
+			  <option value="DESC">Descending</option>
+			  </select>
+              <input type="submit" name="searchPSubmit">
+            </form>
           </div>
         </div>
       </div>
@@ -325,6 +338,8 @@
               echo "<th>Founder</th>";
               echo "<th>Dimensions</th>";
               echo "<th>Location</th>";
+			  echo "<th>Price</th>";
+			  echo "<th>Read More</th>";
               echo "</tr>";
               while($row = $result->fetch_assoc()){
                 echo "<tr>";
@@ -333,6 +348,8 @@
                 echo "<td>".$row["founder"]."</td>";
                 echo "<td>".$row["dimensions"]."</td>";
                 echo "<td>".$row["location"]."</td>";
+				echo "<td>".$row["price"]."</td>";
+				echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
                 echo "</tr>";
               }
               echo "</table>";
@@ -350,6 +367,8 @@
               echo "<th>Founder</th>";
               echo "<th>Dimensions</th>";
               echo "<th>Location</th>";
+			  echo "<th>Price</th>";
+			  echo "<th>Read More</th>";
               echo "</tr>";
               while($row = $result->fetch_assoc()){
                 echo "<tr>";
@@ -358,6 +377,68 @@
                 echo "<td>".$row["founder"]."</td>";
                 echo "<td>".$row["dimensions"]."</td>";
                 echo "<td>".$row["location"]."</td>";
+				echo "<td>".$row["price"]."</td>";
+				echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
+                echo "</tr>";
+              }
+              echo "</table>";
+              echo "</div>";
+            }
+
+			if(isset($_POST['searchNSubmit'])){
+              $attractionName = $_POST['searchNInput'];
+              $sql = "SELECT * FROM `tbl_attractions` WHERE `attraction_name`= '$attractionName'";
+              $result = $conn->query($sql);
+              echo "<div class=\"searchDiv\">";
+              echo "<table border = \"2\">"; 
+              echo "<tr>";
+              echo "<th>Attraction</th>";
+              echo "<th>Date of Creation</th>";
+              echo "<th>Founder</th>";
+              echo "<th>Dimensions</th>";
+              echo "<th>Location</th>";
+			  echo "<th>Price</th>";
+			  echo "<th>Read More</th>";
+              echo "</tr>";
+              while($row = $result->fetch_assoc()){
+                echo "<tr>";
+                echo "<td>".$row["attraction_name"]."</td>";
+                echo "<td>".$row["date-of-creation"]."</td>";
+                echo "<td>".$row["founder"]."</td>";
+                echo "<td>".$row["dimensions"]."</td>";
+                echo "<td>".$row["location"]."</td>";
+				echo "<td>".$row["price"]."</td>";
+				echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
+                echo "</tr>";
+              }
+              echo "</table>";
+              echo "</div>";
+            }
+			
+			if(isset($_POST['searchPSubmit'])){
+              $order = $_POST['searchPInput'];
+              $sql = "SELECT * FROM `tbl_attractions` ORDER BY price '$order'";
+              $result = $conn->query($sql);
+              echo "<div class=\"searchDiv\">";
+              echo "<table border = \"2\">"; 
+              echo "<tr>";
+              echo "<th>Attraction</th>";
+              echo "<th>Date of Creation</th>";
+              echo "<th>Founder</th>";
+              echo "<th>Dimensions</th>";
+              echo "<th>Location</th>";
+			  echo "<th>Price</th>";
+			  echo "<th>Read More</th>";
+              echo "</tr>";
+              while($row = $result->fetch_assoc()){
+                echo "<tr>";
+                echo "<td>".$row["attraction_name"]."</td>";
+                echo "<td>".$row["date-of-creation"]."</td>";
+                echo "<td>".$row["founder"]."</td>";
+                echo "<td>".$row["dimensions"]."</td>";
+                echo "<td>".$row["location"]."</td>";
+				echo "<td>".$row["price"]."</td>";
+				echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
                 echo "</tr>";
               }
               echo "</table>";
