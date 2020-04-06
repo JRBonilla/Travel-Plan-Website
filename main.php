@@ -235,7 +235,34 @@
                 </form>
                 <label id="lbldenied" style="display:none"><b></b>Incorrect Username / Password</b></label>
             </div>
-            <h5>Other Stuff</h5>
+            <h5>Delete A User</h5>
+            <div id="registerUserContainer">
+                <form action="assets\php\deleteUser.php" method="post">
+                    <?php
+                         //connect to db
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbname = "cps630_assign1_db";
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sqlQuery = "SELECT * FROM `tbl_users` ";
+                        $result = $conn->query($sqlQuery);
+                        echo '<select id="selectDelUser" name="selectDelUser">';
+                        echo "<option disabled selected value> -- select a user -- </option>";
+                        while($row = $result->fetch_assoc()){
+                            echo "<option value='".$row['username']."'>".$row['username']."</option>";
+                        }
+                        echo "</select>";
+                    ?>
+                    <input type="submit" value="Enter">
+                </form>
+                <label id="lbldenied" style="display:none"><b></b>Incorrect Username / Password</b></label>
+            </div>
           </div>
         </div>
       </div>
