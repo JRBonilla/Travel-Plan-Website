@@ -115,5 +115,15 @@
                 ?>   
             </p>
         </div>
+        <div id="iteration3">
+            <h2>PRICE</h2>
+            <p>
+                <b>
+                    <?php
+                        echo $this_attraction->getPrice();
+                    ?>
+                </b>
+            </p>
+        </div>
     </body>
 </html>

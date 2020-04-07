@@ -16,6 +16,7 @@ class Attraction
     private $user2;
     private $userDate2;
     private $comment2;
+    private $price;
 
    // constructor
    function __construct($attract_Id) 
@@ -56,6 +57,8 @@ class Attraction
         $this->user2 = $row["user_2"];
         $this->userDate2 = $row["user_date_2"];   
         $this->comment2 = $row["comment_2"];
+
+        $this->price = $row["price"];
    }    
     
    public function getAttractionName() 
@@ -109,6 +112,10 @@ class Attraction
    public function getComment2() 
    {
         return $this->comment2;       
+   }
+   public function getPrice() 
+   {
+        return $this->price;       
    }
     
 }
