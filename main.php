@@ -114,8 +114,8 @@
       </div>
     </div>
 
-     <!--Search modal-->
-     <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel">
+    <!--Search modal-->
+    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <!--Modal title-->
@@ -136,17 +136,17 @@
               <input type="text" id="searchAInput" name="searchAInput"><br><br>
               <input type="submit" name="searchASubmit">
             </form>
-			<form method="POST" id="searchNForm">
+			      <form method="POST" id="searchNForm">
               <label> Search Attraction Name: </label>
               <input type="text" id="searchNInput" name="searchNInput"><br><br>
               <input type="submit" name="searchNSubmit">
             </form>
-			<form method="POST" id="searchPForm">
+			      <form method="POST" id="searchPForm">
               <label> Sort By Price: </label>
-			  <select id="searchPInput">
-			  <option value="ASC">Ascending</option>
-			  <option value="DESC">Descending</option>
-			  </select>
+			        <select id="searchPInput">
+                <option value="ASC">Ascending</option>
+                <option value="DESC">Descending</option>
+              </select>
               <input type="submit" name="searchPSubmit">
             </form>
           </div>
@@ -154,8 +154,8 @@
       </div>
     </div>
 
-  <!--Login Modal-->
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+    <!--Login Modal-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <!--Modal title-->
@@ -166,14 +166,14 @@
           <!--Modal body-->
           <div class="modal-body">
             <div id="loginAuthContainer">
-                <form action="assets\php\login.php" method="post">
-                    <label for="txtLoginUser">Enter Username:</label>
-                    <input type="text" id="txtLoginUser" name="txtLoginUser">
-                    <label for="txtLoginPass">Enter Password:</label>
-                    <input type="password" id="txtLoginPass" name="txtLoginPass">
-                    <input type="submit" value="Enter">
-                </form>
-                <label id="lbldenied" style="display:none"><b></b>Incorrect Username / Password</b></label>
+              <form action="assets\php\login.php" method="post">
+                <label for="txtLoginUser">Enter Username:</label>
+                <input type="text" id="txtLoginUser" name="txtLoginUser">
+                <label for="txtLoginPass">Enter Password:</label>
+                <input type="password" id="txtLoginPass" name="txtLoginPass">
+                <input type="submit" value="Enter">
+              </form>
+              <label id="lbldenied" style="display:none"><b></b>Incorrect Username / Password</b></label>
             </div>
           </div>
         </div>
@@ -192,87 +192,87 @@
           <!--Modal body-->
           <div class="modal-body">
             <div id="registerAuthContainer">
-                <form action="assets\php\register.php" method="post">
-                    <label for="txtRegisterUser">Enter Username:</label>
-                    <input type="text" id="txtRegisterUser" name="txtRegisterUser">
-                    <label for="txtRegisterPass">Enter Password:</label>
-                    <input type="password" id="txtRegisterPass" name="txtRegisterPass">
-                    <label for="txtFName">Enter First Name:</label>
-                    <input type="text" id="txtFName" name="txtFName">
-                    <label for="txtLName">Enter Last Name:</label>
-                    <input type="text" id="txtLName" name="txtLName">
-                    <label for="txtAddress">Address:</label>
-                    <input type="text" id="txtAddress" name="txtAddress">
-                    <label for="txtTelNo">Tel No:</label>
-                    <input type="text" id="txtTelNo" name="txtTelNo">
-                    <label for="txtEmail">Email:</label>
-                    <input type="text" id="txtEmail" name="txtEmail">
-                    <input type="submit" value="Enter">
-                </form>
-                <label id="lbldenied" style="display:none"><b></b>Incorrect Username / Password</b></label>
+              <form action="assets\php\register.php" method="post">
+                <label for="txtRegisterUser">Enter Username:</label>
+                <input type="text" id="txtRegisterUser" name="txtRegisterUser">
+                <label for="txtRegisterPass">Enter Password:</label>
+                <input type="password" id="txtRegisterPass" name="txtRegisterPass">
+                <label for="txtFName">Enter First Name:</label>
+                <input type="text" id="txtFName" name="txtFName">
+                <label for="txtLName">Enter Last Name:</label>
+                <input type="text" id="txtLName" name="txtLName">
+                <label for="txtAddress">Address:</label>
+                <input type="text" id="txtAddress" name="txtAddress">
+                <label for="txtTelNo">Tel No:</label>
+                <input type="text" id="txtTelNo" name="txtTelNo">
+                <label for="txtEmail">Email:</label>
+                <input type="text" id="txtEmail" name="txtEmail">
+                <input type="submit" value="Enter">
+              </form>
+              <label id="lbldenied" style="display:none"><b></b>Incorrect Username / Password</b></label>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-     <!--Admin Modal-->
-     <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <!--Modal title-->
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-            <h4 class="modal-title" id="adminModal">Admin</h4>
-          </div>
-          <!--Modal body-->
-          <div class="modal-body">
-            <h5>Register a User<h4>
-            <div id="registerUserContainer">
+      <!--Admin Modal-->
+      <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <!--Modal title-->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+              <h4 class="modal-title" id="adminModal">Admin</h4>
+            </div>
+            <!--Modal body-->
+            <div class="modal-body">
+              <h5>Register a User<h4>
+              <div id="registerUserContainer">
                 <form action="assets\php\register.php" method="post">
-                    <label for="txtRegisterUser">Enter Username:</label>
-                    <input type="text" id="txtRegisterUser" name="txtRegisterUser">
-                    <label for="txtRegisterPass">Enter Password:</label>
-                    <input type="password" id="txtRegisterPass" name="txtRegisterPass">
-                    <label for="txtFName">Enter First Name:</label>
-                    <input type="text" id="txtFName" name="txtFName">
-                    <label for="txtLName">Enter Last Name:</label>
-                    <input type="text" id="txtLName" name="txtLName">
-                    <label for="txtAddress">Address:</label>
-                    <input type="text" id="txtAddress" name="txtAddress">
-                    <label for="txtTelNo">Tel No:</label>
-                    <input type="text" id="txtTelNo" name="txtTelNo">
-                    <label for="txtEmail">Email:</label>
-                    <input type="text" id="txtEmail" name="txtEmail">
-                    <input type="submit" value="Enter">
+                  <label for="txtRegisterUser">Enter Username:</label>
+                  <input type="text" id="txtRegisterUser" name="txtRegisterUser">
+                  <label for="txtRegisterPass">Enter Password:</label>
+                  <input type="password" id="txtRegisterPass" name="txtRegisterPass">
+                  <label for="txtFName">Enter First Name:</label>
+                  <input type="text" id="txtFName" name="txtFName">
+                  <label for="txtLName">Enter Last Name:</label>
+                  <input type="text" id="txtLName" name="txtLName">
+                  <label for="txtAddress">Address:</label>
+                  <input type="text" id="txtAddress" name="txtAddress">
+                  <label for="txtTelNo">Tel No:</label>
+                  <input type="text" id="txtTelNo" name="txtTelNo">
+                  <label for="txtEmail">Email:</label>
+                  <input type="text" id="txtEmail" name="txtEmail">
+                  <input type="submit" value="Enter">
                 </form>
                 <label id="lbldenied" style="display:none"><b></b>Incorrect Username / Password</b></label>
-            </div>
-            <h5>Delete A User</h5>
-            <div id="registerUserContainer">
+              </div>
+              <h5>Delete A User</h5>
+              <div id="registerUserContainer">
                 <form action="assets\php\deleteUser.php" method="post">
-                    <?php
-                         //connect to db
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "cps630_assign1_db";
-                        // Create connection
-                        $conn = new mysqli($servername, $username, $password, $dbname);
-                        // Check connection
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-                        $sqlQuery = "SELECT * FROM `tbl_users` ";
-                        $result = $conn->query($sqlQuery);
-                        echo '<select id="selectDelUser" name="selectDelUser">';
-                        echo "<option disabled selected value> -- select a user -- </option>";
-                        while($row = $result->fetch_assoc()){
-                            echo "<option value='".$row['username']."'>".$row['username']."</option>";
-                        }
-                        echo "</select>";
-                    ?>
-                    <input type="submit" value="Enter">
+                  <?php
+                      //connect to db
+                      $servername = "localhost";
+                      $username = "root";
+                      $password = "";
+                      $dbname = "cps630_assign1_db";
+                      // Create connection
+                      $conn = new mysqli($servername, $username, $password, $dbname);
+                      // Check connection
+                      if ($conn->connect_error) {
+                          die("Connection failed: " . $conn->connect_error);
+                      }
+                      $sqlQuery = "SELECT * FROM `tbl_users` ";
+                      $result = $conn->query($sqlQuery);
+                      echo '<select id="selectDelUser" name="selectDelUser">';
+                      echo "<option disabled selected value> -- select a user -- </option>";
+                      while($row = $result->fetch_assoc()){
+                          echo "<option value='".$row['username']."'>".$row['username']."</option>";
+                      }
+                      echo "</select>";
+                  ?>
+                  <input type="submit" value="Enter">
                 </form>
                 <label id="lbldenied" style="display:none"><b></b>Incorrect Username / Password</b></label>
             </div>
@@ -313,138 +313,138 @@
         </div>
       </div>
     </div>
-        <?php
-            //connect to db
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "cps630_assign1_db";
+    `  <?php
+        //connect to db
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "cps630_assign1_db";
 
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            if(isset($_POST['searchCSubmit'])){
-              $country = $_POST['searchCInput'];
-              $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_country` ON `tbl_attractions`.`country_id`=`tbl_country`.`country_id` WHERE `tbl_country`.`country`= '$country'";
-              $result = $conn->query($sql);
-              echo "<div class=\"searchDiv\">";
-              echo "<table border = \"2\">"; 
-              echo "<tr>";
-              echo "<th>Attraction</th>";
-              echo "<th>Date of Creation</th>";
-              echo "<th>Founder</th>";
-              echo "<th>Dimensions</th>";
-              echo "<th>Location</th>";
-			  echo "<th>Price</th>";
-			  echo "<th>Read More</th>";
-              echo "</tr>";
-              while($row = $result->fetch_assoc()){
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        if(isset($_POST['searchCSubmit'])){
+            $country = $_POST['searchCInput'];
+            $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_country` ON `tbl_attractions`.`country_id`=`tbl_country`.`country_id` WHERE `tbl_country`.`country`= '$country'";
+            $result = $conn->query($sql);
+            echo "<div class=\"searchDiv\">";
+            echo "<table border = \"2\">"; 
+            echo "<tr>";
+            echo "<th>Attraction</th>";
+            echo "<th>Date of Creation</th>";
+            echo "<th>Founder</th>";
+            echo "<th>Dimensions</th>";
+            echo "<th>Location</th>";
+            echo "<th>Price</th>";
+            echo "<th>Read More</th>";
+            echo "</tr>";
+            while($row = $result->fetch_assoc()){
                 echo "<tr>";
                 echo "<td>".$row["attraction_name"]."</td>";
                 echo "<td>".$row["date-of-creation"]."</td>";
                 echo "<td>".$row["founder"]."</td>";
                 echo "<td>".$row["dimensions"]."</td>";
                 echo "<td>".$row["location"]."</td>";
-				echo "<td>".$row["price"]."</td>";
-				echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
+                echo "<td>".$row["price"]."</td>";
+                echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
                 echo "</tr>";
-              }
-              echo "</table>";
-              echo "</div>";
             }
-              if(isset($_POST['searchASubmit'])){
-              $attractionType = $_POST['searchAInput'];
-              $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_attract_type` ON `tbl_attractions`.`type_id`=`tbl_attract_type`.`type_id` WHERE `tbl_attract_type`.`type_name`= '$attractionType'";
-              $result = $conn->query($sql);
-              echo "<div class=\"searchDiv\">";
-              echo "<table border = \"2\">"; 
-              echo "<tr>";
-              echo "<th>Attraction</th>";
-              echo "<th>Date of Creation</th>";
-              echo "<th>Founder</th>";
-              echo "<th>Dimensions</th>";
-              echo "<th>Location</th>";
-			  echo "<th>Price</th>";
-			  echo "<th>Read More</th>";
-              echo "</tr>";
-              while($row = $result->fetch_assoc()){
+            echo "</table>";
+            echo "</div>";
+        }
+        if(isset($_POST['searchASubmit'])){
+            $attractionType = $_POST['searchAInput'];
+            $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_attract_type` ON `tbl_attractions`.`type_id`=`tbl_attract_type`.`type_id` WHERE `tbl_attract_type`.`type_name`= '$attractionType'";
+            $result = $conn->query($sql);
+            echo "<div class=\"searchDiv\">";
+            echo "<table border = \"2\">"; 
+            echo "<tr>";
+            echo "<th>Attraction</th>";
+            echo "<th>Date of Creation</th>";
+            echo "<th>Founder</th>";
+            echo "<th>Dimensions</th>";
+            echo "<th>Location</th>";
+            echo "<th>Price</th>";
+            echo "<th>Read More</th>";
+            echo "</tr>";
+            while($row = $result->fetch_assoc()){
                 echo "<tr>";
                 echo "<td>".$row["attraction_name"]."</td>";
                 echo "<td>".$row["date-of-creation"]."</td>";
                 echo "<td>".$row["founder"]."</td>";
                 echo "<td>".$row["dimensions"]."</td>";
                 echo "<td>".$row["location"]."</td>";
-				echo "<td>".$row["price"]."</td>";
-				echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
+                echo "<td>".$row["price"]."</td>";
+                echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
                 echo "</tr>";
-              }
-              echo "</table>";
-              echo "</div>";
             }
+          echo "</table>";
+          echo "</div>";
+        }
 
-			if(isset($_POST['searchNSubmit'])){
-              $attractionName = $_POST['searchNInput'];
-              $sql = "SELECT * FROM `tbl_attractions` WHERE `attraction_name`= '$attractionName'";
-              $result = $conn->query($sql);
-              echo "<div class=\"searchDiv\">";
-              echo "<table border = \"2\">"; 
-              echo "<tr>";
-              echo "<th>Attraction</th>";
-              echo "<th>Date of Creation</th>";
-              echo "<th>Founder</th>";
-              echo "<th>Dimensions</th>";
-              echo "<th>Location</th>";
-			  echo "<th>Price</th>";
-			  echo "<th>Read More</th>";
-              echo "</tr>";
-              while($row = $result->fetch_assoc()){
+        if(isset($_POST['searchNSubmit'])){
+            $attractionName = $_POST['searchNInput'];
+            $sql = "SELECT * FROM `tbl_attractions` WHERE `attraction_name`= '$attractionName'";
+            $result = $conn->query($sql);
+            echo "<div class=\"searchDiv\">";
+            echo "<table border = \"2\">"; 
+            echo "<tr>";
+            echo "<th>Attraction</th>";
+            echo "<th>Date of Creation</th>";
+            echo "<th>Founder</th>";
+            echo "<th>Dimensions</th>";
+            echo "<th>Location</th>";
+            echo "<th>Price</th>";
+            echo "<th>Read More</th>";
+            echo "</tr>";
+            while($row = $result->fetch_assoc()){
                 echo "<tr>";
                 echo "<td>".$row["attraction_name"]."</td>";
                 echo "<td>".$row["date-of-creation"]."</td>";
                 echo "<td>".$row["founder"]."</td>";
                 echo "<td>".$row["dimensions"]."</td>";
                 echo "<td>".$row["location"]."</td>";
-				echo "<td>".$row["price"]."</td>";
-				echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
+                echo "<td>".$row["price"]."</td>";
+                echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
                 echo "</tr>";
-              }
-              echo "</table>";
-              echo "</div>";
             }
-			
-			if(isset($_POST['searchPSubmit'])){
-              $order = $_POST['searchPInput'];
-              $sql = "SELECT * FROM `tbl_attractions` ORDER BY price '$order'";
-              $result = $conn->query($sql);
-              echo "<div class=\"searchDiv\">";
-              echo "<table border = \"2\">"; 
-              echo "<tr>";
-              echo "<th>Attraction</th>";
-              echo "<th>Date of Creation</th>";
-              echo "<th>Founder</th>";
-              echo "<th>Dimensions</th>";
-              echo "<th>Location</th>";
-			  echo "<th>Price</th>";
-			  echo "<th>Read More</th>";
-              echo "</tr>";
-              while($row = $result->fetch_assoc()){
+            echo "</table>";
+            echo "</div>";
+        }
+
+        if(isset($_POST['searchPSubmit'])){
+            $order = $_POST['searchPInput'];
+            $sql = "SELECT * FROM `tbl_attractions` ORDER BY price '$order'";
+            $result = $conn->query($sql);
+            echo "<div class=\"searchDiv\">";
+            echo "<table border = \"2\">"; 
+            echo "<tr>";
+            echo "<th>Attraction</th>";
+            echo "<th>Date of Creation</th>";
+            echo "<th>Founder</th>";
+            echo "<th>Dimensions</th>";
+            echo "<th>Location</th>";
+            echo "<th>Price</th>";
+            echo "<th>Read More</th>";
+            echo "</tr>";
+            while($row = $result->fetch_assoc()){
                 echo "<tr>";
                 echo "<td>".$row["attraction_name"]."</td>";
                 echo "<td>".$row["date-of-creation"]."</td>";
                 echo "<td>".$row["founder"]."</td>";
                 echo "<td>".$row["dimensions"]."</td>";
                 echo "<td>".$row["location"]."</td>";
-				echo "<td>".$row["price"]."</td>";
-				echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
+                echo "<td>".$row["price"]."</td>";
+                echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
                 echo "</tr>";
-              }
-              echo "</table>";
-              echo "</div>";
             }
-        ?>
+            echo "</table>";
+            echo "</div>";
+        }
+    ?>`
     <!--Images-->
     <div id="imageContainer" class="imageContainer" style="display: none">
       <!--"One medium box at the center with the image of the place"-->

@@ -496,7 +496,7 @@ $( document ).ready(function() {
       current_attraction3 = 30;
       $("#image3").html("<img src='assets/olumo.jpg' class='image' width='400' alt='Olumo'> <span class='caption'>Text below the image <a href='#' onclick='readMoref3()'>Read More</a></span>");
     }
-        else if (this.value == 'olumo')
+    else if (this.value == 'olumo')
     {
       current_attraction = 30;
       current_attraction2 = 20;
