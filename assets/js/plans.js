@@ -11,7 +11,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// Adds the plan to the cart
+// Adds the plan
 function addToCart(planID) {
     $('#order').html(generateOrder(planID));
     $('#order').show();

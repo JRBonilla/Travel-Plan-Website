@@ -525,54 +525,54 @@
                 }
             }
             else if(isset($_POST['searchCSubmit'])){
-              $country = $_POST['searchCInput'];
-              $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_country` ON `tbl_attractions`.`country_id`=`tbl_country`.`country_id` WHERE `tbl_country`.`country` LIKE '$country'";
-              $result = $conn->query($sql);
-              echo "<div class=\"searchDiv\">";
-              echo "<table border = \"2\">"; 
-              echo "<tr>";
-              echo "<th>Attraction</th>";
-              echo "<th>Date of Creation</th>";
-              echo "<th>Founder</th>";
-              echo "<th>Dimensions</th>";
-              echo "<th>Location</th>";
-              echo "</tr>";
-              while($row = $result->fetch_assoc()){
+                $country = $_POST['searchCInput'];
+                $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_country` ON `tbl_attractions`.`country_id`=`tbl_country`.`country_id` WHERE `tbl_country`.`country` LIKE '$country'";
+                $result = $conn->query($sql);
+                echo "<div class=\"searchDiv\">";
+                echo "<table border = \"2\">"; 
                 echo "<tr>";
-                echo "<td>".$row["attraction_name"]."</td>";
-                echo "<td>".$row["date-of-creation"]."</td>";
-                echo "<td>".$row["founder"]."</td>";
-                echo "<td>".$row["dimensions"]."</td>";
-                echo "<td>".$row["location"]."</td>";
+                echo "<th>Attraction</th>";
+                echo "<th>Date of Creation</th>";
+                echo "<th>Founder</th>";
+                echo "<th>Dimensions</th>";
+                echo "<th>Location</th>";
                 echo "</tr>";
-              }
-              echo "</table>";
-              echo "</div>";
+                while($row = $result->fetch_assoc()){
+                    echo "<tr>";
+                    echo "<td>".$row["attraction_name"]."</td>";
+                    echo "<td>".$row["date-of-creation"]."</td>";
+                    echo "<td>".$row["founder"]."</td>";
+                    echo "<td>".$row["dimensions"]."</td>";
+                    echo "<td>".$row["location"]."</td>";
+                    echo "</tr>";
+                }
+                echo "</table>";
+                echo "</div>";
             }
-              else if(isset($_POST['searchASubmit'])){
-              $attractionType = $_POST['searchAInput'];
-              $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_attract_type` ON `tbl_attractions`.`type_id`=`tbl_attract_type`.`type_id` WHERE `tbl_attract_type`.`type_name` LIKE '$attractionType'";
-              $result = $conn->query($sql);
-              echo "<div class=\"searchDiv\">";
-              echo "<table border = \"2\">"; 
-              echo "<tr>";
-              echo "<th>Attraction</th>";
-              echo "<th>Date of Creation</th>";
-              echo "<th>Founder</th>";
-              echo "<th>Dimensions</th>";
-              echo "<th>Location</th>";
-              echo "</tr>";
-              while($row = $result->fetch_assoc()){
+            else if(isset($_POST['searchASubmit'])){
+                $attractionType = $_POST['searchAInput'];
+                $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_attract_type` ON `tbl_attractions`.`type_id`=`tbl_attract_type`.`type_id` WHERE `tbl_attract_type`.`type_name` LIKE '$attractionType'";
+                $result = $conn->query($sql);
+                echo "<div class=\"searchDiv\">";
+                echo "<table border = \"2\">"; 
                 echo "<tr>";
-                echo "<td>".$row["attraction_name"]."</td>";
-                echo "<td>".$row["date-of-creation"]."</td>";
-                echo "<td>".$row["founder"]."</td>";
-                echo "<td>".$row["dimensions"]."</td>";
-                echo "<td>".$row["location"]."</td>";
+                echo "<th>Attraction</th>";
+                echo "<th>Date of Creation</th>";
+                echo "<th>Founder</th>";
+                echo "<th>Dimensions</th>";
+                echo "<th>Location</th>";
                 echo "</tr>";
-              }
-              echo "</table>";
-              echo "</div>";
+                while($row = $result->fetch_assoc()){
+                    echo "<tr>";
+                    echo "<td>".$row["attraction_name"]."</td>";
+                    echo "<td>".$row["date-of-creation"]."</td>";
+                    echo "<td>".$row["founder"]."</td>";
+                    echo "<td>".$row["dimensions"]."</td>";
+                    echo "<td>".$row["location"]."</td>";
+                    echo "</tr>";
+                }
+                echo "</table>";
+                echo "</div>";
             }
         ?>
         </br>

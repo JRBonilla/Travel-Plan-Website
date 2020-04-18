@@ -26,9 +26,10 @@
       integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
       crossorigin=""></script>
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
   </head>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
   <body ng-app="myApp" class="container">
     <div ng-view></div>
     <script>
@@ -38,11 +39,10 @@
             .when("/", {
                 templateUrl : "main.php"
             })
-            .when("/shoppingCart", {
-                templateUrl : "shoppingCart.html"
+            .when("/plans", {
+                templateUrl : "plan.html"
             });
         });
     </script>
-    <!--<script type="text/javascript" src="assets/js/home.js"></script>-->
   </body>
 </html>

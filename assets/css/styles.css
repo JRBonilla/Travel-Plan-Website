@@ -73,7 +73,8 @@ img {
 	position: fixed;
 	right: 100px;
 	bottom: 100px;
-	}
+}
+
 hr {
 	margin-top: 0;
 }
@@ -91,6 +92,10 @@ th {
 	color: #262626;
 }
 
+body {
+    padding-right: 0 !important;
+}
+
 .container, .navbar {
 	background-color: #f0f2ef;
 }
@@ -101,12 +106,12 @@ th {
 	list-style: none;
 	overflow: hidden;
 	animation-duration: 1.5s;
+    font-size: 12px;
 }
 
 .navbar-default .navbar-nav>li>a {
 	color: #262626;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding: 5px 12px;
 }
 
 ul.rightNav {
@@ -210,8 +215,15 @@ ul.leftNav li {
     display: none;
 }
 
-#loggedIN, #btnLoggedOut, #btnAdmin{
+#loggedIN, #btnLoggedOut, #btnAdmin {
     display: none;
 }
 
+.searchBar {
+    float: right;
+}
 
+#loggedIN {
+    float: right;
+    margin-right: 28px;
+}

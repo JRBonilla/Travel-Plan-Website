@@ -1,181 +1,77 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  </head>
   <body>
+    <!--Search modal-->
     <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <!--Modal title-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-            <h4 class="modal-title" id="searchModalLabel">SEARCH</h4>
+            <h4 class="modal-title" id="searchModalLabel">Search</h4>
           </div>
           <!--Modal body-->
           <div class="modal-body">
             <!-- TODO: Add a form with: a search bar to enter text, check boxes or radio btns to filter by country, attraction etc, and a submit btn-->
-            <form method="POST" id="searchCForm">
-              <label> Search Country: </label>
-              <input type="text" id="searchCInput" name="searchCInput"><br><br>
-              <input type="submit" name="searchCSubmit">
-            </form>
-            <form method="POST" id="searchAForm">
-              <label> Search Attraction Type: </label>
-              <input type="text" id="searchAInput" name="searchAInput"><br><br>
-              <input type="submit" name="searchASubmit">
-            </form>
-            <form method="POST" id="searchNForm">
-              <label> Search Attraction Name: </label>
-              <input type="text" id="searchNInput" name="searchNInput"><br><br>
-              <input type="submit" name="searchNSubmit">
-            </form>
-            <form method="POST" id="searchPForm">
-              <label> Sort By Price: </label>
-              <select id="searchPInput">
-                <option value="ASC">Ascending</option>
-                <option value="DESC">Descending</option>
-              </select>
-              <input type="submit" name="searchPSubmit">
+            <form action="assets\php\search.php"  method="POST" id="searchCForm">
+              <label>Search Country:</label>
+              <div class="searchBar">
+                <input type="text" id="searchCInput" name="searchCInput"><input type="submit" name="searchCSubmit">
+              </div>
+            </form><br>
+            <form action="assets\php\search.php"  method="POST" id="searchAForm">
+              <label>Search Attraction Type:</label>
+              <div class="searchBar">
+                <input type="text" id="searchAInput" name="searchAInput"><input type="submit" name="searchASubmit">
+              </div>
+            </form><br>
+			      <form action="assets\php\search.php"  method="POST" id="searchNForm">
+              <label>Search Attraction Name:</label>
+              <div class="searchBar">
+                <input type="text" id="searchNInput" name="searchNInput"><input type="submit" name="searchNSubmit">
+              </div>
+            </form><br>
+			      <form action="assets\php\search.php"  method="POST" id="searchPForm">
+              <label>Sort By Price:</label>
+              <div class="searchBar">
+                <select id="searchPInput">
+                  <option value="ASC">Ascending</option>
+                  <option value="DESC">Descending</option>
+                </select>
+                <input type="submit" name="searchPSubmit">
+              </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-    <?php
-        //connect to db
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "cps630_assign1_db";
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        if(isset($_POST['searchCSubmit'])){
-            $country = $_POST['searchCInput'];
-            $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_country` ON `tbl_attractions`.`country_id`=`tbl_country`.`country_id` WHERE `tbl_country`.`country`= '$country'";
-            $result = $conn->query($sql);
-            echo "<div class=\"searchDiv\">";
-            echo "<table border = \"2\">"; 
-            echo "<tr>";
-            echo "<th>Attraction</th>";
-            echo "<th>Date of Creation</th>";
-            echo "<th>Founder</th>";
-            echo "<th>Dimensions</th>";
-            echo "<th>Location</th>";
-            echo "<th>Price</th>";
-            echo "<th>Read More</th>";
-            echo "</tr>";
-            while($row = $result->fetch_assoc()){
-                echo "<tr>";
-                echo "<td>".$row["attraction_name"]."</td>";
-                echo "<td>".$row["date-of-creation"]."</td>";
-                echo "<td>".$row["founder"]."</td>";
-                echo "<td>".$row["dimensions"]."</td>";
-                echo "<td>".$row["location"]."</td>";
-                echo "<td>".$row["price"]."</td>";
-                echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
-                echo "</tr>";
-            }
-            echo "</table>";
-            echo "</div>";
-        }
-        if(isset($_POST['searchASubmit'])){
-            $attractionType = $_POST['searchAInput'];
-            $sql = "SELECT * FROM `tbl_attractions` INNER JOIN `tbl_attract_type` ON `tbl_attractions`.`type_id`=`tbl_attract_type`.`type_id` WHERE `tbl_attract_type`.`type_name`= '$attractionType'";
-            $result = $conn->query($sql);
-            echo "<div class=\"searchDiv\">";
-            echo "<table border = \"2\">"; 
-            echo "<tr>";
-            echo "<th>Attraction</th>";
-            echo "<th>Date of Creation</th>";
-            echo "<th>Founder</th>";
-            echo "<th>Dimensions</th>";
-            echo "<th>Location</th>";
-            echo "<th>Price</th>";
-            echo "<th>Read More</th>";
-            echo "</tr>";
-            while($row = $result->fetch_assoc()){
-                echo "<tr>";
-                echo "<td>".$row["attraction_name"]."</td>";
-                echo "<td>".$row["date-of-creation"]."</td>";
-                echo "<td>".$row["founder"]."</td>";
-                echo "<td>".$row["dimensions"]."</td>";
-                echo "<td>".$row["location"]."</td>";
-                echo "<td>".$row["price"]."</td>";
-                echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
-                echo "</tr>";
-            }
-            echo "</table>";
-            echo "</div>";
-        }
-
-        if(isset($_POST['searchNSubmit'])){
-            $attractionName = $_POST['searchNInput'];
-            $sql = "SELECT * FROM `tbl_attractions` WHERE `attraction_name`= '$attractionName'";
-            $result = $conn->query($sql);
-            echo "<div class=\"searchDiv\">";
-            echo "<table border = \"2\">"; 
-            echo "<tr>";
-            echo "<th>Attraction</th>";
-            echo "<th>Date of Creation</th>";
-            echo "<th>Founder</th>";
-            echo "<th>Dimensions</th>";
-            echo "<th>Location</th>";
-            echo "<th>Price</th>";
-            echo "<th>Read More</th>";
-            echo "</tr>";
-            while($row = $result->fetch_assoc()){
-                echo "<tr>";
-                echo "<td>".$row["attraction_name"]."</td>";
-                echo "<td>".$row["date-of-creation"]."</td>";
-                echo "<td>".$row["founder"]."</td>";
-                echo "<td>".$row["dimensions"]."</td>";
-                echo "<td>".$row["location"]."</td>";
-                echo "<td>".$row["price"]."</td>";
-                echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
-                echo "</tr>";
-            }
-            echo "</table>";
-            echo "</div>";
-        }
-        
-        if(isset($_POST['searchPSubmit'])){
-            $order = $_POST['searchPInput'];
-            $sql = "SELECT * FROM `tbl_attractions` ORDER BY price '$order'";
-            $result = $conn->query($sql);
-            echo "<div class=\"searchDiv\">";
-            echo "<table border = \"2\">"; 
-            echo "<tr>";
-            echo "<th>Attraction</th>";
-            echo "<th>Date of Creation</th>";
-            echo "<th>Founder</th>";
-            echo "<th>Dimensions</th>";
-            echo "<th>Location</th>";
-            echo "<th>Price</th>";
-            echo "<th>Read More</th>";
-            echo "</tr>";
-            while($row = $result->fetch_assoc()){
-                echo "<tr>";
-                echo "<td>".$row["attraction_name"]."</td>";
-                echo "<td>".$row["date-of-creation"]."</td>";
-                echo "<td>".$row["founder"]."</td>";
-                echo "<td>".$row["dimensions"]."</td>";
-                echo "<td>".$row["location"]."</td>";
-                echo "<td>".$row["price"]."</td>";
-                echo "<td><a href='#' onclick='readMore(".$row["attract_id"].")'>Read More</a></td>";
-                echo "</tr>";
-            }
-            echo "</table>";
-            echo "</div>";
-        }
-    ?>
     <div>
       <form method="POST" id="ranking">
         <label> Ranking </label>
         <input type="text" id="rankingAttraction" name="rankingAttraction">
         <?php
+            // connect to db
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "cps630_assign1_db";
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            
             $sqlQuery = "SELECT * FROM `tbl_attractions` ";
             $result = $conn->query($sqlQuery);
             echo '<select id="selectAttraction" name="selectAttraction>';
