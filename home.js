@@ -74,7 +74,7 @@ var countries = [
 var attractions = [
   createAttractions('White House', 'whiteHouse', 'usa'),
   createAttractions('Grand Canyon', 'grandC', 'usa'),
-  createAttractions('Niagra Falls', 'niagraF', 'can'),
+  createAttractions('Niagara Falls', 'niagaraF', 'can'),
   createAttractions('CN Tower', 'cnTower', 'can'),
   createAttractions('Stonehenge', 'stoneH', 'uk'),
   createAttractions('Tower of London', 'towerL', 'uk'),
@@ -177,7 +177,7 @@ $( document ).ready(function() {
       current_attraction = 4;
       $("#image1").html("<img src='assets/cnTower.jpg' class='image' width='400' alt='CN Tower'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
       current_attraction2 = 3;
-      $("#image2").html("<img src='assets/niagraF.jpg' class='image' width='400' alt='Niagra Falls'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/niagaraF.jpg' class='image' width='400' alt='Niagara Falls'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
       current_attraction3 = 22;
       $("#image3").html("<img src='assets/vsis.jpg' class='image' width='400' alt='VSIS'> <span class='caption'>Text below the image <a href='#' onclick='readMoref3()'>Read More</a></span>");
 
@@ -227,7 +227,7 @@ $( document ).ready(function() {
       current_attraction = 4;
       $("#image1").html("<img src='assets/cnTower.jpg' class='image' width='400' alt='CN Tower'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
       current_attraction2 = 3;
-      $("#image2").html("<img src='assets/niagraF.jpg' class='image' width='400' alt='Niagra Falls'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
+      $("#image2").html("<img src='assets/niagaraF.jpg' class='image' width='400' alt='Niagara Falls'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
       current_attraction3 = 22;
       $("#image3").html("<img src='assets/vsis.jpg' class='image' width='400' alt='VSIS'> <span class='caption'>Text below the image <a href='#' onclick='readMoref3()'>Read More</a></span>");
 
@@ -278,11 +278,11 @@ $( document ).ready(function() {
       $("#image3").html("<img src='assets/grandC.jpg' class='image' width='400' alt='Grand Canyon'> <span class='caption'>Text below the image <a href='#' onclick='readMoref3()'>Read More</a></span>");
 
     }
-    else if (this.value == 'niagraF')
+    else if (this.value == 'niagaraF')
     {
       current_attraction = 3;
       current_attraction2 = 4;
-      $("#image1").html("<img src='assets/niagraF.jpg' class='image' width='400' alt='Niagra Falls'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image1").html("<img src='assets/niagaraF.jpg' class='image' width='400' alt='Niagara Falls'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
       $("#image2").html("<img src='assets/cnTower.jpg' class='image' width='400' alt='CN Tower'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
       current_attraction3 = 22;
       $("#image3").html("<img src='assets/vsis.jpg' class='image' width='400' alt='Victoria Street Injection Site'> <span class='caption'>Text below the image <a href='#' onclick='readMoref3()'>Read More</a></span>");
@@ -295,7 +295,7 @@ $( document ).ready(function() {
       $("#image1").html("<img src='assets/vsis.jpg' class='image' width='400' alt='Victoria Street Injection Site'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
       $("#image2").html("<img src='assets/cnTower.jpg' class='image' width='400' alt='CN Tower'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
       current_attraction3 = 3;
-      $("#image3").html("<img src='assets/niagraF.jpg' class='image' width='400' alt='Niagra Falls'> <span class='caption'>Text below the image <a href='#' onclick='readMoref3()'>Read More</a></span>");
+      $("#image3").html("<img src='assets/niagaraF.jpg' class='image' width='400' alt='Niagara Falls'> <span class='caption'>Text below the image <a href='#' onclick='readMoref3()'>Read More</a></span>");
 
     }
     else if (this.value == 'stoneH')

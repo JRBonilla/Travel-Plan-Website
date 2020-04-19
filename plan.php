@@ -17,7 +17,7 @@
               <!--Create a Plan-->
               <div class="planCard">
                 <a onclick="collapse('UserPlan')" class="planCard-collapse">&#8964;</a>
-                <p class="planCard-title">Create a Plan</p>
+                <p class="planCard-title">Custom Plan</p>
                 <hr>
                 <div class="planCard-body" id="UserPlan">
                   <!--Adds a location-->
@@ -42,11 +42,14 @@
                   <button id="add-btn" type="button" class="btn btn-info" disabled="true" onclick="addLocation()">Add</button>
                 </div>
               </div><br><br>
+
+              <!--Image container card-->
               <div id="imageContainer" class="imageContainer" style="display: none">
                 <!--"One medium box at the center with the image of the place"-->                
                 <div class="card2 animated fadeInUp" id="image1"></div>
-                <br>
               </div>
+              
+              <!--Comparison table-->
               <div id="comparison" class="planCard animated fadeInUp" style="display: none">
                 <a onclick="collapse('compare-table')" class="planCard-collapse">&#8964;</a>
                 <p class="planCard-title">Comparison</p>
@@ -61,6 +64,7 @@
           </tr>
         </tbody>
       </table>
+
       <!--Popular Travel Plans-->
       <table class="table">
         <thead>

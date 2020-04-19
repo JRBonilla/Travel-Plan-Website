@@ -1,17 +1,16 @@
-var map = L.map('map',{
-    center: [30, 0],
-    zoom: 2
-});
+// Global variables
+var map             = L.map('map',{ center: [30, 0], zoom: 2 });
+var layerGroup      = L.layerGroup().addTo(map);
+var purchased       = [ false, false ];
+var customLocations = [];
+var markers         = [];
+var prices          = [];
 
-var layerGroup = L.layerGroup().addTo(map);
-
+// Create map layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-var purchased = [ false, false ];
-var prices = [];
-var userLocations = [];
 
 // Collapses a plan card
 function collapse(planID) {
@@ -25,11 +24,21 @@ function collapse(planID) {
     }
 }
 
-// Enables the add button
+// Enables the add button if the custom plan has less than 2 locations
 function enableAddButton() {
-    if (userLocations.length < 2) {
-        $("#add-btn").attr("disabled", false);
+    if (customLocations.length < 2) {
+        enableButton("add-btn");
     }
+}
+
+// Enables a button given an id
+function enableButton(buttonID) {
+    $("#" + buttonID).attr('disabled', false);
+}
+
+// Disables a button given an id
+function disableButton(buttonID) {
+    $("#" + buttonID).attr('disabled', true);
 }
 
 // Sends the location-sort value to locationSort.php
@@ -42,184 +51,176 @@ $("#location-sort").change(function() {
 
 // Adds a location to the custom plan
 function addLocation() {
-    // Add location and price to plan
-    userLocations.push($('#location-select').val());
-    prices.push($('#location-select').find("option:selected").attr('name'));
+    var newLocation = $('#location-select').val();
     
-    // Reset form HTML
-    $("#location-sort").prop("selectedIndex", 0);
-    $('#sort-results').html(`
-        <form>
-            <select size="5" id="location-select">
-            </select>
-            <br><br><br><br><br>
-        </form>
-    `);
-    $("#add-btn").attr("disabled", true);
+    // Cannot add the same location twice
+    if (customLocations.length == 0 || newLocation != customLocations[0]) { 
+        // Add location and price to plan
+        customLocations.push(newLocation);
+        prices.push($('#location-select').find("option:selected").attr('name'));
+        
+        // Reset location sort form HTML
+        $("#location-sort").prop("selectedIndex", 0);
+        $('#sort-results').html(`
+            <form>
+                <select size="5" id="location-select">
+                </select>
+                <br><br><br><br><br>
+            </form>
+        `);
 
-    // Display image of location or table displaying info
-    if (userLocations.length == 1) {
-        var current_attraction;
-        var reviewHTML = `
-            <span class='caption2'>`+userLocations[0]+`</span>
-            <br>
-            <div id="review">
-                <span>Rank: </span>
-                <fieldset class="ranking">
-                    <span>1</span>
-                    <input type="radio" id="1" name="ranking" value="1" />
-                    <input type="radio" id="2" name="ranking" value="2" />
-                    <input type="radio" id="3" name="ranking" value="3" />
-                    <input type="radio" id="4" name="ranking" value="4" />
-                    <input type="radio" id="5" name="ranking" value="5" />
-                    <span>5</span>
-                </fieldset>
-                <span>Leave a Review</span>
-                <textarea rows="5"></textarea>
-                <br><br><br><br>
-            </div>
-            <button type="submit" class="btn btn-info">Submit</button><br>
-        `;
+        // Reset add button
+        $("#add-btn").attr("disabled", true);
+        
+        addToCart(3);
 
-        $("#imageContainer").show();
-        if (userLocations[0] == 'White House') {
-            current_attraction = 1;
-            $("#image1").html("<img src='assets/img/whiteHouse.jpg' class='image' width='400' alt='White House'>" + reviewHTML);
+        // Display image of location or table displaying info
+        if (customLocations.length == 1) {
+            var reviewHTML = `
+                <span class='caption2'>`+customLocations[0]+`</span>
+                <br>
+                <div id="review-div">
+                    <span>Rank: </span>
+                    <form class="ranking" id="reviewForm" onchange="enableButton('review-btn')">
+                        <span>1</span>
+                        <input type="radio" id="1" name="ranking" value="1" />
+                        <input type="radio" id="2" name="ranking" value="2" />
+                        <input type="radio" id="3" name="ranking" value="3" />
+                        <input type="radio" id="4" name="ranking" value="4" />
+                        <input type="radio" id="5" name="ranking" value="5" />
+                        <span>5</span>
+                    </form>
+                    <span>Leave a Review</span>
+                    <textarea rows="5" name="review" form="reviewForm"></textarea>
+                    <br><br><br><br>
+                </div>
+                <button id="review-btn" type="button" onclick="submitReview(this)" class="btn btn-info" disabled>Submit</button><br>
+            `;
+
+            $("#imageContainer").show();
+            if (customLocations[0] == 'White House') {
+                $("#image1").html("<img src='assets/img/whiteHouse.jpg' class='image' width='400' alt='White House'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'CN Tower') {
+                $("#image1").html("<img src='assets/img/cnTower.jpg' class='image' width='400' alt='CN Tower'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Great Wall of China') {
+                $("#image1").html("<img src='assets/img/greatWoC.jpg' class='image' width='400' alt='Great Wall of China'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Eiffel Tower') {
+                $("#image1").html("<img src='assets/img/eiffelT.jpg' class='image' width='400' alt='Effiel Tower'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Mount Fuji') {
+                $("#image1").html("<img src='assets/img/fuji.jpg' class='image' width='400' alt='Mount Fuji'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Grand Canyon') {
+                $("#image1").html("<img src='assets/img/grandC.jpg' class='image' width='400' alt='Grand Canyon'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'In N Out') {
+                $("#image1").html("<img src='assets/img/ino.jpg' class='image' width='400' alt='In N Out'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Niagara Falls') {
+                $("#image1").html("<img src='assets/img/niagaraF.jpg' class='image' width='400' alt='Niagara Falls'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Victoria Street Injection Site') {
+                $("#image1").html("<img src='assets/img/vsis.jpg' class='image' width='400' alt='Victoria Street Injection Site'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Stone Henge') {
+                $("#image1").html("<img src='assets/img/stoneH.jpg' class='image' width='400' alt='Stone Henge'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Tower of London') {
+                $("#image1").html("<img src='assets/img/towerL.jpg' class='image' width='400' alt='Tower of London'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Big Ben') {
+                $("#image1").html("<img src='assets/img/bigB.jpg' class='image' width='400' alt='Big Ben'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Louvre Museum') {
+                $("#image1").html("<img src='assets/img/louvreM.jpg' class='image' width='400' alt='Louvre Museum'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Notre Dame') {
+                $("#image1").html("<img src='assets/img/notre.jpg' class='image' width='400' alt='Notre Dame'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Imperial Tokyo') {
+                $("#image1").html("<img src='assets/img/imperialT.jpg' class='image' width='400' alt='Imperial Tokyo'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Akihabara') {
+                $("#image1").html("<img src='assets/img/aki.jpg' class='image' width='400' alt='Akibahara'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Terracotta Army') {
+                $("#image1").html("<img src='assets/img/terracotta.jpg' class='image' width='400' alt='Terracotta Army'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Summer Palace') {
+                $("#image1").html("<img src='assets/img/summperp.jpg' class='image' width='400' alt='Summer Palace'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Great Barrier Reef') {
+                $("#image1").html("<img src='assets/img/reef.jpg' class='image' width='400' alt='Great Barrier Reef'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Uluru') {
+                $("#image1").html("<img src='assets/img/uluru.jpg' class='image' width='400' alt='Uluru'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Sydney Harbour Bridge') {
+                $("#image1").html("<img src='assets/img/sydneyB.jpg' class='image' width='400' alt='Sydney Bridge'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Milford Sound') {
+                $("#image1").html("<img src='assets/img/milford.jpg' class='image' width='400' alt='Milford Sound'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Mount Cook') {
+                $("#image1").html("<img src='assets/img/cook.jpg' class='image' width='400' alt='Mount Cook'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Waitomo') {
+                $("#image1").html("<img src='assets/img/waitomo.jpg' class='image' width='400' alt='Waitomo'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Kruger National Park') {
+                $("#image1").html("<img src='assets/img/kruger.jpg' class='image' width='400' alt='Kruger National Park'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Cape of Good Hope') {
+                $("#image1").html("<img src='assets/img/capeG.jpg' class='image' width='400' alt='Cape of Good Hope'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Robben Island') {
+                $("#image1").html("<img src='assets/img/robben.jpg' class='image' width='400' alt='Robben Island'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Yankari National Park') {
+                $("#image1").html("<img src='assets/img/yankari.jpg' class='image' width='400' alt='Yankari National Park'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Zuma Rock') {
+                $("#image1").html("<img src='assets/img/zuma.jpg' class='image' width='400' alt='Zuma Rock'>" + reviewHTML);
+            }
+            else if (customLocations[0] == 'Olumo') {
+                $("#image1").html("<img src='assets/img/olumo.jpg' class='image' width='400' alt='Olumo'>" + reviewHTML);
+            }
         }
-        else if (userLocations[0] == 'CN Tower') {
-            current_attraction = 4;
-            $("#image1").html("<img src='assets/img/cnTower.jpg' class='image' width='400' alt='CN Tower'>" + reviewHTML);
+        else {
+            $("#imageContainer").hide();
         }
-        else if (userLocations[0] == 'Great Wall of China') {
-            current_attraction = 11;
-            $("#image1").html("<img src='assets/img/greatWoC.jpg' class='image' width='400' alt='Great Wall of China'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Eiffel Tower') {
-            current_attraction = 7;
-            $("#image1").html("<img src='assets/img/eiffelT.jpg' class='image' width='400' alt='Effiel Tower'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Mount Fuji') {
-            current_attraction = 9;
-            $("#image1").html("<img src='assets/img/fuji.jpg' class='image' width='400' alt='Mount Fuji'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Grand Canyon') {
-            current_attraction = 2;
-            $("#image1").html("<img src='assets/img/grandC.jpg' class='image' width='400' alt='Grand Canyon'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'In N Out') {
-            current_attraction = 21;
-            $("#image1").html("<img src='assets/img/ino.jpg' class='image' width='400' alt='In N Out'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Niagra Falls') {
-            current_attraction = 3;
-            $("#image1").html("<img src='assets/img/niagraF.jpg' class='image' width='400' alt='Niagra Falls'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Victoria Street Injection Site') {
-            current_attraction = 22;
-            $("#image1").html("<img src='assets/img/vsis.jpg' class='image' width='400' alt='Victoria Street Injection Site'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Stone Henge') {
-            current_attraction = 5;
-            $("#image1").html("<img src='assets/img/stoneH.jpg' class='image' width='400' alt='Stone Henge'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Tower of London') {
-            current_attraction = 6;
-            $("#image1").html("<img src='assets/img/towerL.jpg' class='image' width='400' alt='Tower of London'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Big Ben') {
-            current_attraction = 23;
-            $("#image1").html("<img src='assets/img/bigB.jpg' class='image' width='400' alt='Big Ben'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Louvre Museum') {
-            current_attraction = 8;
-            $("#image1").html("<img src='assets/img/louvreM.jpg' class='image' width='400' alt='Louvre Museum'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Notre Dame') {
-            current_attraction = 24;
-            $("#image1").html("<img src='assets/img/notre.jpg' class='image' width='400' alt='Notre Dame'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Imperial Tokyo') {
-            current_attraction = 10;
-            $("#image1").html("<img src='assets/img/imperialT.jpg' class='image' width='400' alt='Imperial Tokyo'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Akihabara') {
-            current_attraction = 25;
-            $("#image1").html("<img src='assets/img/aki.jpg' class='image' width='400' alt='Akibahara'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Terracotta Army') {
-            current_attraction = 12;
-            $("#image1").html("<img src='assets/img/terracotta.jpg' class='image' width='400' alt='Terracotta Army'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Summer Palace') {
-            current_attraction = 26;
-            $("#image1").html("<img src='assets/img/summperp.jpg' class='image' width='400' alt='Summer Palace'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Great Barrier Reef') {
-            current_attraction = 13;
-            $("#image1").html("<img src='assets/img/reef.jpg' class='image' width='400' alt='Great Barrier Reef'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Uluru') {
-            current_attraction = 14;
-            $("#image1").html("<img src='assets/img/uluru.jpg' class='image' width='400' alt='Uluru'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Sydney Harbour Bridge') {
-            current_attraction = 27;
-            $("#image1").html("<img src='assets/img/sydneyB.jpg' class='image' width='400' alt='Sydney Bridge'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Milford Sound') {
-            current_attraction = 15;
-            $("#image1").html("<img src='assets/img/milford.jpg' class='image' width='400' alt='Milford Sound'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Mount Cook') {
-            current_attraction = 16;
-            $("#image1").html("<img src='assets/img/cook.jpg' class='image' width='400' alt='Mount Cook'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Waitomo') {
-            current_attraction = 28;
-            $("#image1").html("<img src='assets/img/waitomo.jpg' class='image' width='400' alt='Waitomo'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Kruger National Park') {
-            current_attraction = 17;
-            $("#image1").html("<img src='assets/img/kruger.jpg' class='image' width='400' alt='Kruger National Park'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Cape of Good Hope') {
-            current_attraction = 18;
-            $("#image1").html("<img src='assets/img/capeG.jpg' class='image' width='400' alt='Cape of Good Hope'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Robben Island') {
-            current_attraction = 29;
-            $("#image1").html("<img src='assets/img/robben.jpg' class='image' width='400' alt='Robben Island'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Yankari National Park') {
-            current_attraction = 19;
-            $("#image1").html("<img src='assets/img/yankari.jpg' class='image' width='400' alt='Yankari National Park'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Zuma Rock') {
-            current_attraction = 20;
-            $("#image1").html("<img src='assets/img/zuma.jpg' class='image' width='400' alt='Zuma Rock'>" + reviewHTML);
-        }
-        else if (userLocations[0] == 'Olumo') {
-            current_attraction = 30;
-            $("#image1").html("<img src='assets/img/olumo.jpg' class='image' width='400' alt='Olumo'>" + reviewHTML);
+
+        // Display the comparison table
+        if (customLocations.length == 2) {
+            $("#comparison").show();
+            var locationA = customLocations[0];
+            var locationB = customLocations[1];
+
+            var markerA = markers[0].getLatLng();
+            var markerB = markers[2].getLatLng();
+            var distance = (((markerA.distanceTo(markerB)).toFixed(0)/1000)) + ' km';
+
+            $.post("assets/php/compare.php", { locationA: locationA, locationB: locationB, distance: distance }, function(data) {
+                $("#compare-table").html(data);
+            });
         }
     }
-    else {
-        $("#imageContainer").hide();
-    }
-
-    if (userLocations.length == 2) {
-        $("#comparison").show();
-        var locationA = userLocations[0];
-        var locationB = userLocations[1];
-        $.post("assets/php/compare.php", { locationA: locationA, locationB: locationB }, function(data) {
-            $("#compare-table").html(data);
-        });
-    }
-    
-    addToCart(3);
 }
 
-// Adds the plan
+// Submits the review to the database
+function submitReview() {
+    // TODO: Actually submit review to database.
+
+    $("#review-div").html(`
+        <span class="animated fadeIn">Thank you for your feedback!</span>
+    `);
+    $("#review-btn").hide();
+}
+
+// Adds the plan to the cart
 function addToCart(planID) {
     $('#order').html(generateOrder(planID));
     $('#order').show();
@@ -237,11 +238,11 @@ var generateOrder = function(planID) {
         planTitle = "European Tour"
         break;
         case 3:
-        for (var i = 0; i < userLocations.length; i++) {
+        for (var i = 0; i < customLocations.length; i++) {
             if (i >= 1) {
                 planTitle += ", ";
             }
-            planTitle += userLocations[i];
+            planTitle += customLocations[i];
         }
         break;
     }
@@ -449,15 +450,12 @@ function updateMap(planID) {
     switch (parseInt(planID)) {
         case 1:
         locations = NorthAmerica;
-        map.setView([40, -90], 4);
         break
         case 2:
         locations = Europe;
-        map.setView([50, 0], 6);
         break;
         case 3:
         locations = getLocationCoordinates();
-        map.setView([30, 0], 2);
         break;
     }
 
@@ -470,19 +468,68 @@ function updateMap(planID) {
         onEachFeature: onEachFeature,
 
         pointToLayer: function(feature, latlng) {
-            return L.marker(latlng);
+            var marker = L.marker(latlng);
+            if (markers[0] != marker) {
+                markers.push(marker);
+            }
+            return marker;
         }
     }).addTo(layerGroup);
+
+    // Zoom the map in or out to show all markers
+    var group = new L.featureGroup(markers);
+    map.fitBounds(group.getBounds());
+
+    // Draw a path between the locations
+    if (locations.features.length >= 2) {
+        var path = L.polyline(getPathCoordinates(locations)).addTo(map);
+        
+        // Calculate the distance of the path
+        var markerA = markers[0].getLatLng();
+        var markerB = markers[2].getLatLng();
+        var distance = (((markerA.distanceTo(markerB)).toFixed(0)/1000)) + ' km';
+        
+        path.bindPopup(distance);
+        path.openPopup();
+        
+        // Add a distance popup to the path line on mouseover
+        path.on('mouseover', function(e) {
+            var layer = e.target;
+            layer.bindPopup(distance);
+            layer.openPopup();
+        });
+
+        // Close the distance popup of the path line on mouseout
+        path.on('mouseout', function(e) {
+            var layer = e.target;
+            layer.closePopup();
+        })
+    }
 }
 
+// Calculates the coordinates for the line path
+function getPathCoordinates(data) {
+    var features = data.features, c = [];
+    
+    for (var i = 0; i < features.length; i++) {
+        var feature = features[i];
+        if (feature.geometry.type == "Point") {
+            c.push(feature.geometry.coordinates.reverse());
+        }
+    }
+
+    return c;
+}
+
+// Returns the coordinates of the locations in the custom plan
 function getLocationCoordinates() {
     var userLocationCoords = {
         "type": "FeatureCollection",
         "features": []
     };
 
-    for (var i = 0; i < userLocations.length; i++) {
-        var nameA = userLocations[i];
+    for (var i = 0; i < customLocations.length; i++) {
+        var nameA = customLocations[i];
         for (var j = 0; j < AllLocations.features.length; j++) {
             var nameB = AllLocations.features[j].properties.popupContent;
             if (nameA == nameB) {
@@ -493,6 +540,7 @@ function getLocationCoordinates() {
     return userLocationCoords;
 }
 
+// Given a number, adds commas to help readability
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
