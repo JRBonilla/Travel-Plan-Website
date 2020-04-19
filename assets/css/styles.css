@@ -19,6 +19,17 @@ img {
 	line-height: normal;
 }
 
+.caption2 {
+	display: inline-block;
+    line-height: 40px;
+    font-weight: bolder;
+}
+
+textarea {
+    width: 90%;
+    resize: none;
+}
+
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
@@ -34,6 +45,27 @@ img {
 
 .card:hover {
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card2 {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 90%;
+	border-radius: 5px;
+	background-color: #ffffff;
+	line-height: 10px;
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.card2:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#review {
+    line-height: 20px;
 }
 
 .planCard {
@@ -61,6 +93,26 @@ img {
 	padding-left: 16px;
 	padding-bottom: 10px;
     line-height: normal;
+}
+
+.planCard-collapse {
+    float: right;
+    font-weight: bolder;
+    text-align: center;
+    margin-right: 2.5%;
+    margin-top: 2%;
+    width: 30px;
+    font-size: 18px;
+    border-radius: 3px;
+    border: solid 1px;
+    padding-bottom: 5px;
+	transition: 0.1s;
+}
+
+.planCard-collapse:hover {
+    color: white;
+    background-color: #5bc0de;
+    text-decoration: none;
 }
 
 .btn-info {
@@ -226,4 +278,20 @@ ul.leftNav li {
 #loggedIN {
     float: right;
     margin-right: 28px;
+}
+
+#btnMaintain {
+    display: none;
+}
+
+#planNav {
+    margin-bottom: 0;
+}
+
+#NATour, #EUTour {
+    display: none;
+}
+
+#location-select {
+    width: 97%;
 }

@@ -22,25 +22,25 @@ function createAttractions(name, id, country) {
 }
 
 function createPopular(name, id) {
-  return {
+    return {
     name: name,
     id: id,
-  };
+    };
 }
 
 function removeOptions(select) {
-  while (select.options.length > 1) {                
-    select.remove(1);
-  }
-  
-  select.value = "";
+    while (select.options.length > 1) {                
+        select.remove(1);
+    }
+
+    select.value = "";
 }
 
 function addOptions(select, options) {
-  console.log(select, options)
-  options.forEach(function(option) {
-    select.options.add(new Option(option.name, option.id));
-  });
+    console.log(select, options)
+    options.forEach(function(option) {
+        select.options.add(new Option(option.name, option.id));
+    });
 }
 
 var continentSelect = document.getElementById('continents');
@@ -50,115 +50,110 @@ var popularSelect = document.getElementById('popularPlaces');
 var current_attraction,current_attraction2 = 0;
 
 var continents = [
-  createContinents('North America', 'am'),
-  createContinents('Europe', 'eu'),
-  createContinents('Asia', 'asia'),
-  createContinents('Australia', 'aus'),
-  createContinents('Africa', 'af'),
+    createContinents('North America', 'am'),
+    createContinents('Europe', 'eu'),
+    createContinents('Asia', 'asia'),
+    createContinents('Australia', 'aus'),
+    createContinents('Africa', 'af'),
 ];
 
 var countries = [
-  createCountries('USA', 'usa', 'am'),
-  createCountries('Canada', 'can', 'am'),
-  createCountries('United Kingdom', 'uk', 'eu'),
-  createCountries('France', 'fr', 'eu'),
-  createCountries('Japan', 'jap', 'asia'),
-  createCountries('China', 'cn', 'asia'),
-  createCountries('Australia', 'australia', 'aus'),
-  createCountries('New Zealand', 'nz', 'aus'),
-  createCountries('South Africa', 'saf', 'af'),
-  createCountries('Nigeria', 'nig', 'af'),
+    createCountries('USA', 'usa', 'am'),
+    createCountries('Canada', 'can', 'am'),
+    createCountries('United Kingdom', 'uk', 'eu'),
+    createCountries('France', 'fr', 'eu'),
+    createCountries('Japan', 'jap', 'asia'),
+    createCountries('China', 'cn', 'asia'),
+    createCountries('Australia', 'australia', 'aus'),
+    createCountries('New Zealand', 'nz', 'aus'),
+    createCountries('South Africa', 'saf', 'af'),
+    createCountries('Nigeria', 'nig', 'af'),
 ];
 
 var attractions = [
-  createAttractions('White House', 'whiteHouse', 'usa'),
-  createAttractions('Grand Canyon', 'grandC', 'usa'),
-  createAttractions('Niagra Falls', 'niagraF', 'can'),
-  createAttractions('CN Tower', 'cnTower', 'can'),
-  createAttractions('Stonehenge', 'stoneH', 'uk'),
-  createAttractions('Tower of London', 'towerL', 'uk'),
-  createAttractions('Eiffel Tower', 'eiffelT', 'fr'),
-  createAttractions('Louvre Museum', 'louvreM', 'fr'),
-  createAttractions('Mount Fuji', 'fuji', 'jap'),
-  createAttractions('Imperial Tokyo', 'imperialT', 'jap'),
-  createAttractions('Great Wall of China', 'wallC', 'cn'),
-  createAttractions('Terracotta Army', 'terracotta', 'cn'),
-  createAttractions('Great Barrier Reef', 'reef', 'australia'),
-  createAttractions('Uluru', 'uluru', 'australia'),
-  createAttractions('Milford Sound', 'milford', 'nz'),
-  createAttractions('Mount Cook', 'cook', 'nz'),
-  createAttractions('Kruger National Park', 'kruger', 'saf'),
-  createAttractions('Cape of Good Hope', 'capeG', 'saf'),
-  createAttractions('Yankari National Park', 'yankari', 'nig'),
-  createAttractions('Zuma Rock', 'zuma', 'nig'),
+    createAttractions('White House', 'whiteHouse', 'usa'),
+    createAttractions('Grand Canyon', 'grandC', 'usa'),
+    createAttractions('Niagra Falls', 'niagraF', 'can'),
+    createAttractions('CN Tower', 'cnTower', 'can'),
+    createAttractions('Stonehenge', 'stoneH', 'uk'),
+    createAttractions('Tower of London', 'towerL', 'uk'),
+    createAttractions('Eiffel Tower', 'eiffelT', 'fr'),
+    createAttractions('Louvre Museum', 'louvreM', 'fr'),
+    createAttractions('Mount Fuji', 'fuji', 'jap'),
+    createAttractions('Imperial Tokyo', 'imperialT', 'jap'),
+    createAttractions('Great Wall of China', 'wallC', 'cn'),
+    createAttractions('Terracotta Army', 'terracotta', 'cn'),
+    createAttractions('Great Barrier Reef', 'reef', 'australia'),
+    createAttractions('Uluru', 'uluru', 'australia'),
+    createAttractions('Milford Sound', 'milford', 'nz'),
+    createAttractions('Mount Cook', 'cook', 'nz'),
+    createAttractions('Kruger National Park', 'kruger', 'saf'),
+    createAttractions('Cape of Good Hope', 'capeG', 'saf'),
+    createAttractions('Yankari National Park', 'yankari', 'nig'),
+    createAttractions('Zuma Rock', 'zuma', 'nig'),
     createAttractions('In N Out', 'inO', 'usa'),
-  createAttractions('Victoria Street Injection Site', 'vSIS', 'can'),
-  createAttractions('Big Ben', 'bigB', 'uk'),
-  createAttractions('Notre-Dame', 'notreD', 'fr'),
-  createAttractions('Akihabara', 'aki', 'jap'),
-  createAttractions('Summer Palace', 'summerP', 'cn'),
-  createAttractions('Sydney Harbor Bridge', 'sydneyB', 'australia'),
-  createAttractions('Waitomo', 'waitomo', 'nz'),
-  createAttractions('Robben Island', 'robben', 'saf'),
-  createAttractions('Olumo Rock', 'olumo', 'nig'),
+    createAttractions('Victoria Street Injection Site', 'vSIS', 'can'),
+    createAttractions('Big Ben', 'bigB', 'uk'),
+    createAttractions('Notre-Dame', 'notreD', 'fr'),
+    createAttractions('Akihabara', 'aki', 'jap'),
+    createAttractions('Summer Palace', 'summerP', 'cn'),
+    createAttractions('Sydney Harbor Bridge', 'sydneyB', 'australia'),
+    createAttractions('Waitomo', 'waitomo', 'nz'),
+    createAttractions('Robben Island', 'robben', 'saf'),
+    createAttractions('Olumo Rock', 'olumo', 'nig'),
 ];
 
 var popularPlaces = [
-  createPopular('White House', 'whiteHouse'),
-  createPopular('CN Tower', 'cnTower'),
-  createPopular('Great Wall of China', 'wallC'),
-  createPopular('Eiffel Tower', 'eiffelT'),
-  createPopular('Mount Fuji', 'fuji'),
- ];
+    createPopular('White House', 'whiteHouse'),
+    createPopular('CN Tower', 'cnTower'),
+    createPopular('Great Wall of China', 'wallC'),
+    createPopular('Eiffel Tower', 'eiffelT'),
+    createPopular('Mount Fuji', 'fuji'),
+];
 
 function updateCountries() {
-  var selectedContinent = continentSelect.value;
-  var options = countries.filter(function(country) {
-    return country.continent === selectedContinent;
-  });
-  $("#countries").show();
-  $("#attractions").hide();
-  removeOptions(countrySelect);
-  removeOptions(attractionsSelect);
-  addOptions(countrySelect, options);
+    var selectedContinent = continentSelect.value;
+    var options = countries.filter(function(country) {
+        return country.continent === selectedContinent;
+    });
+    $("#countries").show();
+    $("#attractions").hide();
+    removeOptions(countrySelect);
+    removeOptions(attractionsSelect);
+    addOptions(countrySelect, options);
 }
 
 function updateAttractions() {
-  var selectedCountry = countrySelect.value;
-  var options = attractions.filter(function(attraction) {
-    return attraction.country === selectedCountry;
-  });
-  $("#attractions").show();
-  removeOptions(attractionsSelect);
-  addOptions(attractionsSelect, options);
+    var selectedCountry = countrySelect.value;
+    var options = attractions.filter(function(attraction) {
+        return attraction.country === selectedCountry;
+    });
+    $("#attractions").show();
+    removeOptions(attractionsSelect);
+    addOptions(attractionsSelect, options);
 }
 
-function readMoref1()
-{
-  document.cookie = "attract_type_id=" + current_attraction; 
-  window.location.href = 'pages/readMorePages/readMore.php';
+function readMoref1() {
+    document.cookie = "attract_type_id=" + current_attraction; 
+    window.location.href = 'pages/readMorePages/readMore.php';
 }
 
-function readMoref2()
-{
-  document.cookie = "attract_type_id=" + current_attraction2; 
-  window.location.href = 'pages/readMorePages/readMore.php';
+function readMoref2() {
+    document.cookie = "attract_type_id=" + current_attraction2; 
+    window.location.href = 'pages/readMorePages/readMore.php';
 }
 
-function readMoref3()
-{
-  document.cookie = "attract_type_id=" + current_attraction3; 
-  window.location.href = 'pages/readMorePages/readMore.php';
+function readMoref3() {
+    document.cookie = "attract_type_id=" + current_attraction3; 
+    window.location.href = 'pages/readMorePages/readMore.php';
 }
 
-function authMaintainPwd()
-{
+function authMaintainPwd() {
     //pwd = document.getElementById("txtMaintain").value;
     
     //console.log(pwd)
     var admin = getCookie("admin");
-    if(admin == 1)
-    {
+    if(admin == 1) {
         //alert("correct");
         document.getElementById("maintainContainer").style.display = "block";
         document.getElementById("maintainAuthContainer").style.display = "none";
@@ -166,8 +161,7 @@ function authMaintainPwd()
         //document.getElementById("lblIncorrect").style.display = "none";
         document.getElementById("btnMaintain").style.display = "visible";
     }
-    else
-    {
+    else {
         // document.getElementById("lblIncorrect").style.display = "block";
         document.getElementById("btnMaintain").style.display = "none";
     }
@@ -179,35 +173,35 @@ function getCookie(cname) {
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
     for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
     }
     return "";
-  }
+}
 
-    function logout(){
-        //clear cookies
-        //document.cookie = "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+function logout(){
+    //clear cookies
+    //document.cookie = "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-        //set cookie
-        //document.cookie = "loggedIn=N"; 
-        setCookie("loggedIn","N",1);
-        setCookie("admin",0,1);
-        location.reload();
-    }
+    //set cookie
+    //document.cookie = "loggedIn=N"; 
+    setCookie("loggedIn","N",1);
+    setCookie("admin",0,1);
+    location.reload();
+}
 
-    //set cokie function from w3schools
-    function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays*24*60*60*1000));
-        var expires = "expires="+ d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
+//set cokie function from w3schools
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
 $( document ).ready(function() {
     //check if someone is logged in
@@ -215,8 +209,7 @@ $( document ).ready(function() {
     var admin = getCookie("admin");
     authMaintainPwd();
     //if user is logged in
-    if (loggedInCheck == "Y")
-    {
+    if (loggedInCheck == "Y") {
         var username = getCookie("username");
         document.getElementById("loggedIN").innerHTML = "Currently logged in as: " + username;
         document.getElementById("loggedIN").style.display = "block";

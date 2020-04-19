@@ -39,7 +39,6 @@
                     //setcookie("loggedIn", "Y", time() + (86400 * 30), "/");
                     //setcookie("username", $username, time() + (86400 * 30), "/");
                     echo 'Successfully Registered, returning to home screen';
-
                 } else {
                     echo "Error: " . $sqlQuery . "<br>" . $conn->error;
                 }
