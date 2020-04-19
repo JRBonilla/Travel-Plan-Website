@@ -150,7 +150,7 @@ function addLocation() {
                 $("#image1").html("<img src='assets/img/terracotta.jpg' class='image' width='400' alt='Terracotta Army'>" + reviewHTML);
             }
             else if (customLocations[0] == 'Summer Palace') {
-                $("#image1").html("<img src='assets/img/summperp.jpg' class='image' width='400' alt='Summer Palace'>" + reviewHTML);
+                $("#image1").html("<img src='assets/img/summerp.jpg' class='image' width='400' alt='Summer Palace'>" + reviewHTML);
             }
             else if (customLocations[0] == 'Great Barrier Reef') {
                 $("#image1").html("<img src='assets/img/reef.jpg' class='image' width='400' alt='Great Barrier Reef'>" + reviewHTML);

@@ -382,7 +382,7 @@ $( document ).ready(function() {
     {
       current_attraction = 26;
       current_attraction2 = 11;
-      $("#image1").html("<img src='assets/summperp.jpg' class='image' width='400' alt='Summer Palace'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
+      $("#image1").html("<img src='assets/summerp.jpg' class='image' width='400' alt='Summer Palace'> <span class='caption'>Text below the image <a href='#' onclick='readMoref1()'>Read More</a></span>");
       $("#image2").html("<img src='assets/greatWoC.jpg' class='image' width='400' alt='Great Wall of China'> <span class='caption'>Text below the image <a href='#' onclick='readMoref2()'>Read More</a></span>");
       current_attraction3 = 12;
       $("#image3").html("<img src='assets/terracotta.jpg' class='image' width='400' alt='Terracotta Army'> <span class='caption'>Text below the image <a href='#' onclick='readMoref3()'>Read More</a></span>");
