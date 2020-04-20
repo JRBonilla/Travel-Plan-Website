@@ -59,6 +59,11 @@
     echo "<td>".$distance."</td>";
     echo "<td>".$distance."</td>";
     echo "</tr>";
+    echo "<tr>";
+    echo "<td><b>Average Ranking</b></td>";
+    echo "<td>".$rowA['rank']."</td>";
+    echo "<td>".$rowB['rank']."</td>";
+    echo "</tr>";
     echo "</thead>";
     echo "</table>";
 ?>
