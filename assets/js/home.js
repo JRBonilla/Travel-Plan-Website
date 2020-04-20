@@ -159,11 +159,9 @@ function authMaintainPwd() {
         document.getElementById("maintainAuthContainer").style.display = "none";
         document.getElementById("btnAdmin").style.display = "block";
         //document.getElementById("lblIncorrect").style.display = "none";
-        document.getElementById("btnMaintain").style.display = "visible";
     }
     else {
         // document.getElementById("lblIncorrect").style.display = "block";
-        document.getElementById("btnMaintain").style.display = "none";
     }
 }
 
