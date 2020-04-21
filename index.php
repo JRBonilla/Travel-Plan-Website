@@ -86,7 +86,7 @@
                 <p>Currently a 5th year Computer Science co-op student who is interested in pursuing a full stack job in the future.</p></li>
               <li>Christopher Seow
                 <br>
-                <p>i'm pretty much amazin</p>
+                <p>I'm pretty much amazing</p>
               </li>
               <li>Jonathan Bonilla
                 <br>
@@ -330,7 +330,7 @@
         </div>
       </div>
     </div>
-    
+
     <div ng-view></div>
     <script>
         var app = angular.module("myApp", ["ngRoute"]);

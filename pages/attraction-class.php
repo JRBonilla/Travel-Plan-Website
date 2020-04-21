@@ -65,50 +65,62 @@ class Attraction
    {
         return $this->attractionName;       
    }
+
    public function getCountryId() 
    {
         return $this->countryId;       
    }
+   
    public function getTypeId() 
    {
         return $this->typeId;       
    }
+   
    public function getDateOfCreation() 
    {
         return $this->dateOfCreation;       
    }
+   
    public function getDimensions() 
    {
         return $this->dimensions;       
    }
+   
    public function getFounder() 
    {
         return $this->founder;       
    }
+   
    public function getLocation() 
    {
         return $this->location;       
    }
+
    public function getUser1() 
    {
         return $this->user1;       
    }
+   
    public function getUserDate1() 
    {
         return $this->userDate1;       
    }
+   
    public function getComment1() 
    {
         return $this->comment1;       
    }
+   
    public function getUser2() 
    {
         return $this->user2;       
    }
+   
    public function getUserDate2() 
    {
         return $this->userDate2;       
    }
+   
    public function getComment2() 
    {
         return $this->comment2;       
