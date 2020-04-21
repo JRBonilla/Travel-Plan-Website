@@ -31,7 +31,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
   </head>
   <body ng-app="myApp" class="container">
-  <body class="container">
     <!--Navigation bar-->
     <nav class="navbar navbar-default">
       <div class="container-fluid">
