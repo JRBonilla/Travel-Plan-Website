@@ -10,6 +10,7 @@
         <?php
             session_start();
             include('../attraction-class.php');
+            include('../image-class.php');
 
             $servername = "localhost";
             $username = "root";
@@ -24,6 +25,7 @@
             }
             $attract_type_id = "attract_type_id";
             $this_attraction = new Attraction($_COOKIE[$attract_type_id]);
+            $this_attraction_img = new AttractionImage($_COOKIE[$attract_type_id]);
             //$result = $conn->query($sqlQuery);
             $conn->close();
         ?>
@@ -35,12 +37,12 @@
             <h3>PICS</h3>
             <img src=
                 <?php
-                    echo $this_attraction->getImagePath1();
+                    echo $this_attraction_img->getImagePath1();
                 ?> 
             width='180' alt="">
             <img src=
                 <?php
-                    echo $this_attraction->getImagePath2();
+                    echo $this_attraction_img->getImagePath2();
                 ?> 
             width='180' alt="">
         </div>
@@ -111,6 +113,16 @@
                 <?php
                     echo $this_attraction->getComment2();
                 ?>   
+            </p>
+        </div>
+        <div id="iteration3">
+            <h2>PRICE</h2>
+            <p>
+                <b>
+                    <?php
+                        echo $this_attraction->getPrice();
+                    ?>
+                </b>
             </p>
         </div>
     </body>
